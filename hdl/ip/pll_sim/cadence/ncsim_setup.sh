@@ -12,7 +12,7 @@
 # or its authorized distributors. Please refer to the applicable 
 # agreement for further details.
 
-# ACDS 13.1 182 linux 2015.06.20.00:42:45
+# ACDS 13.1 162 linux 2015.07.08.16:45:01
 
 # ----------------------------------------
 # ncsim - auto-generated simulation script
@@ -21,7 +21,7 @@
 # initialize variables
 TOP_LEVEL_NAME="pll"
 QSYS_SIMDIR="./../"
-QUARTUS_INSTALL_DIR="/usr/tool/Altera/13.1.4s/quartus/"
+QUARTUS_INSTALL_DIR="/usr/tool/Altera/13.1s/quartus/"
 SKIP_FILE_COPY=0
 SKIP_DEV_COM=0
 SKIP_COM=0

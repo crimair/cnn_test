@@ -336,10 +336,12 @@ void fpga_open(void){
 		perror("mmap");
 		exit(EXIT_FAILURE);
 	}
-  	//close(fd);
+  	close(fd);
 
 	fpga_map = (volatile uint32_t*) p_fpga_map;
 	fpga_mem = (volatile uint32_t*) p_fpga_mem;
+
+	zcnn = (volatile fpga_reg *) fpga_map;
 }
 
 void fpga_close(void)
@@ -386,12 +388,10 @@ void	fpconv_data_copy_to_fpga (uint8_t *input_ptr,
 		*dp = fconv[*pp];
 		dp++; pp++;
 	}
-//	std::cout << "oo" << std::endl;
 
 	dp = di;
 	mem = (unsigned int *) (fpga_mem + (unsigned int)offset);
 	memcpy((void*)mem,(void*)dp,sizeof(uint32_t)*copy_size);
-//	std::cout << "oo" << std::endl;
 	free(di);
 }
 
@@ -482,12 +482,9 @@ int main(int argc, char* argv[]){
     t = (double)cvGetTickCount();
 
 	FILE *pp,*bp,*wp;
-	float ba;
-	float we[9];
 	int i,j,k,l;
 #ifdef FPGA_ACTIVE
 	fpga_open();
-	zcnn = (volatile fpga_reg *) fpga_map;
 #endif
 	if (argc!=2){
 		printf("----------------------------------------------------------------%d\n",argc);
@@ -529,12 +526,8 @@ int main(int argc, char* argv[]){
 	//image read -> fpga memory write
 	cv::Mat img = cv::imread(std::string(argv[1]), 1);
 	cv::Mat img_yuv;
-//    cv::imshow( "pre_result", img);
-//	cv::waitKey(0);
-//	return 0;
 
 	//to yuv
-//	cv::cvtColor(img,img_yuv,CV_BGR2YUV);
 	cv::cvtColor(img,img_yuv,CV_BGR2YCrCb);
 
 	cv::Mat img2;
@@ -550,13 +543,9 @@ int main(int argc, char* argv[]){
 	uint32_t pic1_size;
 	pic1_size = img2_size.width * img2_size.height / 4 + 1;
   
-	printf("p1:%d\n",pic1_size);
-
 	for(i=0;i<max_input_planes;i++){
 		fmp[0][i] = pic1_size * (2*i);
 		fmp[1][i] = pic1_size * (2*i+1);
-		//printf("m0:%x\n",fmp[0][i]);
-		//printf("m1:%x\n",fmp[1][i]);
 	}
 
 #ifdef FPGA_ACTIVE
@@ -568,17 +557,10 @@ int main(int argc, char* argv[]){
 	);
 	last_pointer = fmp[0][0];
 
-//	fpconv_data_copy_to_fpga(color_planes[0].data,
-//							 fmp[1][0]*4+1,                        //copy address
-//							 img2_size.width * img2_size.height //copy size
-//	);
-
-	std::cout << "yy" << std::endl;
-	debug_mem_put ("in.img",fmp[0][0]*4,img2_size.width * img2_size.height + 10);
-	debug_mem_put ("in2.img",fmp[1][0]*4,img2_size.width * img2_size.height + 10);
+//	debug_mem_put ("in.img",fmp[0][0]*4,img2_size.width * img2_size.height + 10);
 
 	//others setting
-	zcnn->fx.start_delay = 1280; //1line delay
+	zcnn->fx.start_delay = 400; //1line delay
 	zcnn->fx.xsize = img2_size.width;
 	zcnn->fx.ysize = img2_size.height;
 	zcnn->fi[0].xsize = img2_size.width;
@@ -590,14 +572,11 @@ int main(int argc, char* argv[]){
 	zcnn->fi[3].xsize = img2_size.width;
 	zcnn->fi[3].ysize = img2_size.height;
 
-	std::cout << "cc" << std::endl;
-
 #ifdef FPGA_ACTIVE2
 	//main loop
 	int p1;
 	int p2;
 	uint32_t tw[9];
-	uint32_t tb;
 	uint32_t xb[128];
 	tf_t tf;
 	int oneshot = 0;
@@ -607,7 +586,6 @@ int main(int argc, char* argv[]){
 		fread(xb,sizeof(uint32_t),output_loop[i],bp);
 		for(j=0,p2=0;j<output_loop[i];j++){
 			for(k=0,p1=0;k<input_loop[i];k++){
-				//printf("p:%d:%d:%d\n",progress,p1,p2);
 				progress++;
 				//weight
 				fread(tw,sizeof(uint32_t),9,wp);
@@ -622,17 +600,14 @@ int main(int argc, char* argv[]){
 					zcnn->fi[p2].mif = 0; //clear
 
 					zcnn->fi[p2].write_address = fmp[(i+1)%2][j]; //write address
-					//printf("@@@@@ %d %08x %08x %d %d\n",p2,fmp[(i+1)%2][k],zcnn->fi[p2].write_address,i,k);
+
 					//h 全プレーン書き込みに対して
 					zcnn->fi[p2].mif |= 0x10;
 					//bias
-//					fread(&tb,sizeof(uint32_t),1,bp);
-//					zcnn->fi[p2].bias = tb;
 					zcnn->fi[p2].bias = xb[j];
 
 					p2++;
-					//if (p2==4 || (j==(output_loop[i]-1) && k==input_loop[i-1])){ //fpga start
-					if (p2==4){ //fpga start
+					if (p2==4 || (j==(output_loop[i]-1))){ //fpga start
 						zcnn->fi[0].read_address = fmp[i%2][k]; //read address
 						if (p2>=1){
 							zcnn->fi[0].mif |= 2; //write on
@@ -651,17 +626,11 @@ int main(int argc, char* argv[]){
 						zcnn->fx.mif = 0; //clear
 						zcnn->fx.ctrl = 0; //fx ctrl clear
 						zcnn->fx.ctrl |= 0x10000; //f0 multi assign
-						#ifdef DEBUG
-						if (oneshot==0){
-							debug_dump_reg ("reg_pre.txt");
-						}
-						#endif
 						zcnn->fx.ctrl |= 1; //tg on
 						while((zcnn->fx.ctrl & 2)!=0){
 							//poling wait
 						}
 						#ifdef DEBUG
-						printf("DUMP:%d\n",fmp[(i+1)%2][0]);
 						if (oneshot==0){
 							oneshot = 1;
 							debug_mem_put ("0.img",0,img2_size.width * img2_size.height);
@@ -683,8 +652,7 @@ int main(int argc, char* argv[]){
 					zcnn->fi[p2].write_address  = fmp[i%2][k+1]; //read address
 
 					p2++;
-					//if (p2==4 || (j==(output_loop[i]-1) && k==input_loop[i-1])){ //fpga start
-					if (p2==4){ //fpga start
+					if (p2==4 || (k==input_loop[i]-1)){ //fpga start
 
 						zcnn->fx.read_address = fmp[(i+1)%2][j]; //add read address
 						zcnn->fx.ctrl = 0; //clear
@@ -726,13 +694,7 @@ int main(int argc, char* argv[]){
 						if (k==(input_loop[i]-1)){
 							zcnn->fx.mif |= 0x10;
 							//bias
-//							fread(&tb,sizeof(uint32_t),1,bp);
-//							zcnn->fx.bias = tb;
 							zcnn->fx.bias = xb[j];
-							tf.ui = zcnn->fx.bias;
-							printf("%f ",tf.f);
-							tf.ui = zcnn->fi[3].w[0];
-							printf("%f\n",tf.f);
 						}
 						zcnn->fx.mif |= 2; //write on
 						zcnn->fx.ctrl |= 1; //tg on
@@ -774,7 +736,6 @@ int main(int argc, char* argv[]){
 	fpga_close();
 #endif
 
-	std::cout << "xx" << std::endl;
 	cv::Mat img_dst;
 	cv::Mat img_out;
 	cv::merge(color_planes, img_dst);

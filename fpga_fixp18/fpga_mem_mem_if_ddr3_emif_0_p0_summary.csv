@@ -1,0 +1,34 @@
+Core: fpga_mem_mem_if_ddr3_emif_0_p0 - Instance: u1|mem_if_ddr3_emif_0
+Path, Setup Margin, Hold Margin
+"Address Command (Slow 1100mV 85C Model)",0.121,0.798
+"Bus Turnaround Time (Slow 1100mV 85C Model)",7.691,--
+"Core (Slow 1100mV 85C Model)",-0.001,0.234
+"Core Recovery/Removal (Slow 1100mV 85C Model)",-3.401,0.621
+"DQS vs CK (Slow 1100mV 85C Model)",0.566,0.643
+"Postamble (Slow 1100mV 85C Model)",0.34,0.34
+"Read Capture (Slow 1100mV 85C Model)",0.264,0.217
+"Write (Slow 1100mV 85C Model)",0.362,0.362
+"Address Command (Slow 1100mV 0C Model)",0.155,0.784
+"Bus Turnaround Time (Slow 1100mV 0C Model)",7.803,--
+"Core (Slow 1100mV 0C Model)",-0.081,0.257
+"Core Recovery/Removal (Slow 1100mV 0C Model)",-3.388,0.574
+"DQS vs CK (Slow 1100mV 0C Model)",0.576,0.669
+"Postamble (Slow 1100mV 0C Model)",0.291,0.291
+"Read Capture (Slow 1100mV 0C Model)",0.276,0.229
+"Write (Slow 1100mV 0C Model)",0.371,0.371
+"Address Command (Fast 1100mV 85C Model)",0.651,0.794
+"Bus Turnaround Time (Fast 1100mV 85C Model)",8.167,--
+"Core (Fast 1100mV 85C Model)",1.597,0.156
+"Core Recovery/Removal (Fast 1100mV 85C Model)",-1.671,0.33
+"DQS vs CK (Fast 1100mV 85C Model)",0.661,0.769
+"Postamble (Fast 1100mV 85C Model)",0.216,0.216
+"Read Capture (Fast 1100mV 85C Model)",0.397,0.35
+"Write (Fast 1100mV 85C Model)",0.43,0.43
+"Address Command (Fast 1100mV 0C Model)",0.639,0.811
+"Bus Turnaround Time (Fast 1100mV 0C Model)",8.198,--
+"Core (Fast 1100mV 0C Model)",1.621,0.142
+"Core Recovery/Removal (Fast 1100mV 0C Model)",-1.618,0.297
+"DQS vs CK (Fast 1100mV 0C Model)",0.65,0.786
+"Postamble (Fast 1100mV 0C Model)",0.234,0.234
+"Read Capture (Fast 1100mV 0C Model)",0.399,0.352
+"Write (Fast 1100mV 0C Model)",0.44,0.44

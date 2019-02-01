@@ -1,11 +1,11 @@
 //IP Functional Simulation Model
-//VERSION_BEGIN 13.1 cbx_mgl 2014:03:12:21:10:00:SJ cbx_simgen 2014:03:12:18:15:30:SJ  VERSION_END
+//VERSION_BEGIN 13.1 cbx_mgl 2013:10:17:04:34:36:SJ cbx_simgen 2013:10:17:04:07:49:SJ  VERSION_END
 // synthesis VERILOG_INPUT_VERSION VERILOG_2001
 // altera message_off 10463
 
 
 
-// Copyright (C) 1991-2014 Altera Corporation
+// Copyright (C) 1991-2013 Altera Corporation
 // Your use of Altera Corporation's design tools, logic functions 
 // and other software and tools, and its AMPP partner logic 
 // functions, and any output files from any of the foregoing 
@@ -214,7 +214,7 @@ module  pll
 		pll_altera_pll_altera_pll_i_2014.n_cnt_odd_div_duty_en = "false",
 		pll_altera_pll_altera_pll_i_2014.number_of_clocks = 4,
 		pll_altera_pll_altera_pll_i_2014.operation_mode = "direct",
-		pll_altera_pll_altera_pll_i_2014.output_clock_frequency0 = "80.000000 MHz",
+		pll_altera_pll_altera_pll_i_2014.output_clock_frequency0 = "70.000000 MHz",
 		pll_altera_pll_altera_pll_i_2014.output_clock_frequency1 = "100.000000 MHz",
 		pll_altera_pll_altera_pll_i_2014.output_clock_frequency10 = "0 MHz",
 		pll_altera_pll_altera_pll_i_2014.output_clock_frequency11 = "0 MHz",
@@ -224,8 +224,8 @@ module  pll
 		pll_altera_pll_altera_pll_i_2014.output_clock_frequency15 = "0 MHz",
 		pll_altera_pll_altera_pll_i_2014.output_clock_frequency16 = "0 MHz",
 		pll_altera_pll_altera_pll_i_2014.output_clock_frequency17 = "0 MHz",
-		pll_altera_pll_altera_pll_i_2014.output_clock_frequency2 = "120.000000 MHz",
-		pll_altera_pll_altera_pll_i_2014.output_clock_frequency3 = "150.000000 MHz",
+		pll_altera_pll_altera_pll_i_2014.output_clock_frequency2 = "116.666666 MHz",
+		pll_altera_pll_altera_pll_i_2014.output_clock_frequency3 = "155.555555 MHz",
 		pll_altera_pll_altera_pll_i_2014.output_clock_frequency4 = "0 MHz",
 		pll_altera_pll_altera_pll_i_2014.output_clock_frequency5 = "0 MHz",
 		pll_altera_pll_altera_pll_i_2014.output_clock_frequency6 = "0 MHz",
@@ -265,7 +265,6 @@ module  pll
 		pll_altera_pll_altera_pll_i_2014.pll_m_cnt_in_src = "ph_mux_clk",
 		pll_altera_pll_altera_pll_i_2014.pll_manu_clk_sw_en = "false",
 		pll_altera_pll_altera_pll_i_2014.pll_output_clk_frequency = "0 MHz",
-		pll_altera_pll_altera_pll_i_2014.pll_slf_rst = "false",
 		pll_altera_pll_altera_pll_i_2014.pll_subtype = "General",
 		pll_altera_pll_altera_pll_i_2014.pll_type = "General",
 		pll_altera_pll_altera_pll_i_2014.pll_vco_div = 1,

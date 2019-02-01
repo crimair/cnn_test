@@ -1,0 +1,262 @@
+//synopsys translate_off
+`default_nettype none
+//synopsys translate_on
+`timescale 1ns/1ps
+
+module zcnn_cache
+(/*AUTOARG*/
+// Outputs
+rd_out, cache_end_tgl, write_end_tgl, mem_write, mem_address,
+mem_writedata, mem_burstcount, buffer_empty,
+// Inputs
+resb, clk, wvp_in, wen_in, wd_in, rvp_in, ren_in, write_cache_on,
+write_start, write_address, write_size, write_mem_size, mem_clk,
+mem_waitrequest
+);
+
+input wire          resb;
+input wire          clk;
+input wire          wvp_in;
+input wire          wen_in;
+input wire [17:0]   wd_in;
+input wire          rvp_in;
+input wire          ren_in;
+output wire [17:0]  rd_out;
+
+input wire          write_cache_on;
+input wire          write_start;
+input wire [31:0]   write_address;
+input wire [31:0]   write_size;
+input wire [31:0]   write_mem_size;
+output wire         cache_end_tgl;
+output wire         write_end_tgl;
+
+input wire          mem_clk;
+output wire         mem_write;
+output wire [25:0]  mem_address;
+output wire [127:0] mem_writedata;
+input wire          mem_waitrequest;
+output wire [7:0]   mem_burstcount;
+
+output wire         buffer_empty;
+
+localparam CACHE_WIDTH = 14;
+localparam PACK = 7 -1;
+
+reg                    wen;
+reg [31:0]             wcnt;
+reg [CACHE_WIDTH-1:0]  wadr;
+reg [2:0]              pwcnt;
+reg [125:0]            wdat;
+
+wire                   ren;
+reg [CACHE_WIDTH-1:0]  radr;
+wire [CACHE_WIDTH-1:0] radr_n;
+reg [2:0]              prcnt;
+reg [125:0]            rd_q;
+wire [125:0]           q;
+
+reg [CACHE_WIDTH-1:0]  xadr;
+
+reg                    men;
+reg                    xen;
+reg                    cache_on_d;
+reg                    end_tgl;
+
+assign rd_out = rd_q[17:0];
+
+
+wire [31:0] write_size_max = write_size - 1;
+
+assign cache_end_tgl = end_tgl;
+
+always @ (posedge clk or negedge resb) begin
+    if (!resb) begin
+        wen        <= 0;
+        wadr       <= 0;
+        pwcnt      <= 0;
+        wdat       <= 0;
+        radr       <= 0;
+        rd_q       <= 0;
+        prcnt      <= 0;
+        cache_on_d <= 0;
+        end_tgl    <= 0;
+    end
+    else begin
+        cache_on_d <= write_cache_on;
+
+        if (wvp_in) begin
+            wadr  <= 0;
+            pwcnt <= 0;
+            wcnt  <= 0;
+            wen   <= 0;
+        end
+        else if (wen_in && cache_on_d) begin
+            if (pwcnt==PACK) begin
+                pwcnt <= 0;
+            end
+            else begin
+                pwcnt <= pwcnt + 1;
+            end
+
+            if (wen) begin
+                wadr <= wadr + 1;
+            end
+
+            case (pwcnt)
+                0 : wdat [18+18*0-1:18*0] <= wd_in;
+                1 : wdat [18+18*1-1:18*1] <= wd_in;
+                2 : wdat [18+18*2-1:18*2] <= wd_in;
+                3 : wdat [18+18*3-1:18*3] <= wd_in;
+                4 : wdat [18+18*4-1:18*4] <= wd_in;
+                5 : wdat [18+18*5-1:18*5] <= wd_in;
+                default : wdat [18+18*6-1:18*6] <= wd_in;
+            endcase
+
+            if (wcnt>=write_size_max) begin
+                wcnt    <= 0;
+                end_tgl <= ~end_tgl;
+            end
+            else begin
+                wcnt <= wcnt + 1;
+            end
+
+            wen <= wen_in && ((pwcnt==PACK) || wcnt>=write_size_max);
+
+        end // if (wen_in)
+        else begin
+            wen <= 0;
+
+            if (wen) begin
+                wadr <= wadr + 1;
+            end
+
+        end
+
+        if (rvp_in) begin
+            radr  <= 0;
+            prcnt <= 0;
+        end
+        else if (ren_in) begin
+            if (prcnt==PACK) begin
+                prcnt <= 0;
+                radr <= radr + 1;
+            end
+            else begin
+                prcnt <= prcnt + 1;
+            end
+
+            if (ren_in && prcnt==0) begin
+                rd_q <= q;
+            end
+            else begin
+                rd_q <= {18'd0,rd_q[125:18]};
+            end
+        end
+    end
+end // always @ (posedge clk or negedge resb)
+assign ren = ren_in && (prcnt==PACK);
+assign radr_n = radr + 1;
+
+cache_126x12288 c_cache(
+                        .clock     (clk),
+                        .data      (wdat),
+//                        .rdaddress ((xen) ? xadr: ((ren) ? radr_n : radr)),
+                        .rdaddress ((xen) ? xadr: radr),
+                        .wraddress (wadr),
+                        .wren      (wen),
+                        .q         (q)
+                        );
+
+wire [31:0] write_mem_size_rem;
+wire [31:0] write_mem_size_max;
+reg [31:0] write_mem_size_max_a;
+reg [7:0]   write_start_delay;
+reg [1:0]   cstat;
+reg         wend_tgl;
+wire        fifo_wfull;
+
+assign write_mem_size_rem = (write_mem_size[3:0]==0) ? 0 : 16 - write_mem_size[3:0];
+assign write_mem_size_max = write_mem_size - 1 + write_mem_size_rem;
+
+always @ (posedge clk or negedge resb) begin
+    if (!resb) begin
+        write_start_delay <= 0;
+        wend_tgl          <= 0;
+        cstat             <= 0;
+        xen               <= 0;
+        xadr              <= 0;
+        men               <= 0;
+    end
+    else begin
+write_mem_size_max_a <= write_mem_size_max;
+        write_start_delay <= {write_start_delay[6:0] , write_start};
+        men               <= xen & (~fifo_wfull);
+        case (cstat)
+            0 : begin
+                if (write_start_delay[7]) begin
+                    cstat <= 1;
+                    xadr <= 0;
+                    xen <= 1;
+                end
+            end
+            1: begin
+                if (!fifo_wfull) begin
+//                    if (xadr==write_mem_size_max) begin
+                    if (xadr==write_mem_size_max_a[CACHE_WIDTH-1:0]) begin
+                        cstat    <= 2;
+                        xen      <= 0;
+                        wend_tgl <= ~wend_tgl;
+                    end
+                    else begin
+                        xadr <= xadr + 1;
+                        xen  <= 1;
+                    end
+                end // if (!fifo_wfull)
+            end
+            2: begin
+                if (!write_start_delay[7]) begin
+                    cstat <= 0;
+                end
+            end
+            default: begin
+                cstat <= 0;
+                xen   <= 0;
+                xadr  <= 0;
+            end
+        endcase
+    end
+end
+assign write_end_tgl = wend_tgl;
+
+wire [127:0] mif_wdat;
+assign mif_wdat = {2'd0,q};
+
+/*zcnn_write_mif_core AUTO_TEMPLATE(
+ .wen    (men),
+ .wdat   (mif_wdat[]),
+ );
+ */
+zcnn_write_mif_core mif_core
+(/*AUTOINST*/
+ // Outputs
+ .fifo_wfull                            (fifo_wfull),
+ .mem_write                             (mem_write),
+ .mem_address                           (mem_address[25:0]),
+ .mem_writedata                         (mem_writedata[127:0]),
+ .mem_burstcount                        (mem_burstcount[7:0]),
+ .buffer_empty                          (buffer_empty),
+ // Inputs
+ .resb                                  (resb),
+ .clk                                   (clk),
+ .write_start                           (write_start),
+ .write_address                         (write_address[31:0]),
+ .wen                                   (men),                   // Templated
+ .wdat                                  (mif_wdat[127:0]),       // Templated
+ .mem_clk                               (mem_clk),
+ .mem_waitrequest                       (mem_waitrequest));
+
+endmodule // zcnn_cache
+//synopsys translate_off
+`default_nettype wire
+//synopsys translate_on

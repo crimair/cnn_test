@@ -621,6 +621,7 @@ pll c_pll(
 //              (SW==2) ? clk100 :
 //              (SW==3) ? clk120 :
 //              (SW==4) ? clk150 : OSC_50_B3B ;
+//assign clks = OSC_50_B3B ;
 assign clks = clk80;
 
 /*zcnn_core AUTO_TEMPLATE(

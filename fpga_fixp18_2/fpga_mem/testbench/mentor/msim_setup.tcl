@@ -1,0 +1,371 @@
+
+# (C) 2001-2015 Altera Corporation. All rights reserved.
+# Your use of Altera Corporation's design tools, logic functions and 
+# other software and tools, and its AMPP partner logic functions, and 
+# any output files any of the foregoing (including device programming 
+# or simulation files), and any associated documentation or information 
+# are expressly subject to the terms and conditions of the Altera 
+# Program License Subscription Agreement, Altera MegaCore Function 
+# License Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by Altera 
+# or its authorized distributors. Please refer to the applicable 
+# agreement for further details.
+
+# ACDS 13.1 162 linux 2015.07.03.13:00:04
+
+# ----------------------------------------
+# Auto-generated simulation script
+
+# ----------------------------------------
+# Initialize variables
+if ![info exists SYSTEM_INSTANCE_NAME] { 
+  set SYSTEM_INSTANCE_NAME ""
+} elseif { ![ string match "" $SYSTEM_INSTANCE_NAME ] } { 
+  set SYSTEM_INSTANCE_NAME "/$SYSTEM_INSTANCE_NAME"
+}
+
+if ![info exists TOP_LEVEL_NAME] { 
+  set TOP_LEVEL_NAME "fpga_mem_tb"
+}
+
+if ![info exists QSYS_SIMDIR] { 
+  set QSYS_SIMDIR "./../"
+}
+
+if ![info exists QUARTUS_INSTALL_DIR] { 
+  set QUARTUS_INSTALL_DIR "/usr/tool/Altera/13.1s/quartus/"
+}
+
+# ----------------------------------------
+# Initialize simulation properties - DO NOT MODIFY!
+set ELAB_OPTIONS ""
+set SIM_OPTIONS ""
+if ![ string match "*-64 vsim*" [ vsim -version ] ] {
+} else {
+}
+
+# ----------------------------------------
+# Copy ROM/RAM files to simulation directory
+alias file_copy {
+  echo "\[exec\] file_copy"
+  file copy -force $QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0_s0_sequencer_mem.hex ./
+  file copy -force $QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0_s0_AC_ROM.hex ./
+  file copy -force $QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0_s0_inst_ROM.hex ./
+}
+
+# ----------------------------------------
+# Create compilation libraries
+proc ensure_lib { lib } { if ![file isdirectory $lib] { vlib $lib } }
+ensure_lib          ./libraries/     
+ensure_lib          ./libraries/work/
+vmap       work     ./libraries/work/
+vmap       work_lib ./libraries/work/
+if ![ string match "*ModelSim ALTERA*" [ vsim -version ] ] {
+  ensure_lib                       ./libraries/altera_ver/           
+  vmap       altera_ver            ./libraries/altera_ver/           
+  ensure_lib                       ./libraries/lpm_ver/              
+  vmap       lpm_ver               ./libraries/lpm_ver/              
+  ensure_lib                       ./libraries/sgate_ver/            
+  vmap       sgate_ver             ./libraries/sgate_ver/            
+  ensure_lib                       ./libraries/altera_mf_ver/        
+  vmap       altera_mf_ver         ./libraries/altera_mf_ver/        
+  ensure_lib                       ./libraries/altera_lnsim_ver/     
+  vmap       altera_lnsim_ver      ./libraries/altera_lnsim_ver/     
+  ensure_lib                       ./libraries/cyclonev_ver/         
+  vmap       cyclonev_ver          ./libraries/cyclonev_ver/         
+  ensure_lib                       ./libraries/cyclonev_hssi_ver/    
+  vmap       cyclonev_hssi_ver     ./libraries/cyclonev_hssi_ver/    
+  ensure_lib                       ./libraries/cyclonev_pcie_hip_ver/
+  vmap       cyclonev_pcie_hip_ver ./libraries/cyclonev_pcie_hip_ver/
+}
+ensure_lib                                                                             ./libraries/altera_common_sv_packages/                                                  
+vmap       altera_common_sv_packages                                                   ./libraries/altera_common_sv_packages/                                                  
+ensure_lib                                                                             ./libraries/p2b_adapter/                                                                
+vmap       p2b_adapter                                                                 ./libraries/p2b_adapter/                                                                
+ensure_lib                                                                             ./libraries/b2p_adapter/                                                                
+vmap       b2p_adapter                                                                 ./libraries/b2p_adapter/                                                                
+ensure_lib                                                                             ./libraries/transacto/                                                                  
+vmap       transacto                                                                   ./libraries/transacto/                                                                  
+ensure_lib                                                                             ./libraries/p2b/                                                                        
+vmap       p2b                                                                         ./libraries/p2b/                                                                        
+ensure_lib                                                                             ./libraries/b2p/                                                                        
+vmap       b2p                                                                         ./libraries/b2p/                                                                        
+ensure_lib                                                                             ./libraries/timing_adt/                                                                 
+vmap       timing_adt                                                                  ./libraries/timing_adt/                                                                 
+ensure_lib                                                                             ./libraries/jtag_phy_embedded_in_jtag_master/                                           
+vmap       jtag_phy_embedded_in_jtag_master                                            ./libraries/jtag_phy_embedded_in_jtag_master/                                           
+ensure_lib                                                                             ./libraries/crosser/                                                                    
+vmap       crosser                                                                     ./libraries/crosser/                                                                    
+ensure_lib                                                                             ./libraries/rsp_xbar_mux_001/                                                           
+vmap       rsp_xbar_mux_001                                                            ./libraries/rsp_xbar_mux_001/                                                           
+ensure_lib                                                                             ./libraries/rsp_xbar_mux/                                                               
+vmap       rsp_xbar_mux                                                                ./libraries/rsp_xbar_mux/                                                               
+ensure_lib                                                                             ./libraries/rsp_xbar_demux/                                                             
+vmap       rsp_xbar_demux                                                              ./libraries/rsp_xbar_demux/                                                             
+ensure_lib                                                                             ./libraries/cmd_xbar_mux/                                                               
+vmap       cmd_xbar_mux                                                                ./libraries/cmd_xbar_mux/                                                               
+ensure_lib                                                                             ./libraries/cmd_xbar_demux_001/                                                         
+vmap       cmd_xbar_demux_001                                                          ./libraries/cmd_xbar_demux_001/                                                         
+ensure_lib                                                                             ./libraries/cmd_xbar_demux/                                                             
+vmap       cmd_xbar_demux                                                              ./libraries/cmd_xbar_demux/                                                             
+ensure_lib                                                                             ./libraries/id_router/                                                                  
+vmap       id_router                                                                   ./libraries/id_router/                                                                  
+ensure_lib                                                                             ./libraries/addr_router_001/                                                            
+vmap       addr_router_001                                                             ./libraries/addr_router_001/                                                            
+ensure_lib                                                                             ./libraries/addr_router/                                                                
+vmap       addr_router                                                                 ./libraries/addr_router/                                                                
+ensure_lib                                                                             ./libraries/mem_if_ddr3_emif_0_avl_0_translator_avalon_universal_slave_0_agent_rsp_fifo/
+vmap       mem_if_ddr3_emif_0_avl_0_translator_avalon_universal_slave_0_agent_rsp_fifo ./libraries/mem_if_ddr3_emif_0_avl_0_translator_avalon_universal_slave_0_agent_rsp_fifo/
+ensure_lib                                                                             ./libraries/mem_if_ddr3_emif_0_avl_0_translator_avalon_universal_slave_0_agent/         
+vmap       mem_if_ddr3_emif_0_avl_0_translator_avalon_universal_slave_0_agent          ./libraries/mem_if_ddr3_emif_0_avl_0_translator_avalon_universal_slave_0_agent/         
+ensure_lib                                                                             ./libraries/mm_bridge_10_m0_translator_avalon_universal_master_0_agent/                 
+vmap       mm_bridge_10_m0_translator_avalon_universal_master_0_agent                  ./libraries/mm_bridge_10_m0_translator_avalon_universal_master_0_agent/                 
+ensure_lib                                                                             ./libraries/mem_if_ddr3_emif_0_avl_0_translator/                                        
+vmap       mem_if_ddr3_emif_0_avl_0_translator                                         ./libraries/mem_if_ddr3_emif_0_avl_0_translator/                                        
+ensure_lib                                                                             ./libraries/mm_bridge_10_m0_translator/                                                 
+vmap       mm_bridge_10_m0_translator                                                  ./libraries/mm_bridge_10_m0_translator/                                                 
+ensure_lib                                                                             ./libraries/mm_interconnect_1/                                                          
+vmap       mm_interconnect_1                                                           ./libraries/mm_interconnect_1/                                                          
+ensure_lib                                                                             ./libraries/dll0/                                                                       
+vmap       dll0                                                                        ./libraries/dll0/                                                                       
+ensure_lib                                                                             ./libraries/oct0/                                                                       
+vmap       oct0                                                                        ./libraries/oct0/                                                                       
+ensure_lib                                                                             ./libraries/c0/                                                                         
+vmap       c0                                                                          ./libraries/c0/                                                                         
+ensure_lib                                                                             ./libraries/dmaster/                                                                    
+vmap       dmaster                                                                     ./libraries/dmaster/                                                                    
+ensure_lib                                                                             ./libraries/s0/                                                                         
+vmap       s0                                                                          ./libraries/s0/                                                                         
+ensure_lib                                                                             ./libraries/p0/                                                                         
+vmap       p0                                                                          ./libraries/p0/                                                                         
+ensure_lib                                                                             ./libraries/pll0/                                                                       
+vmap       pll0                                                                        ./libraries/pll0/                                                                       
+ensure_lib                                                                             ./libraries/mm_interconnect_0/                                                          
+vmap       mm_interconnect_0                                                           ./libraries/mm_interconnect_0/                                                          
+ensure_lib                                                                             ./libraries/mm_bridge_0/                                                                
+vmap       mm_bridge_0                                                                 ./libraries/mm_bridge_0/                                                                
+ensure_lib                                                                             ./libraries/mem_if_ddr3_emif_0/                                                         
+vmap       mem_if_ddr3_emif_0                                                          ./libraries/mem_if_ddr3_emif_0/                                                         
+ensure_lib                                                                             ./libraries/rst_controller/                                                             
+vmap       rst_controller                                                              ./libraries/rst_controller/                                                             
+ensure_lib                                                                             ./libraries/mem_if_ddr3_emif_0_mem_model/                                               
+vmap       mem_if_ddr3_emif_0_mem_model                                                ./libraries/mem_if_ddr3_emif_0_mem_model/                                               
+ensure_lib                                                                             ./libraries/fpga_mem_inst_mrx_bfm/                                                      
+vmap       fpga_mem_inst_mrx_bfm                                                       ./libraries/fpga_mem_inst_mrx_bfm/                                                      
+ensure_lib                                                                             ./libraries/fpga_mem_inst_mem_if_ddr3_emif_0_pll_sharing_bfm/                           
+vmap       fpga_mem_inst_mem_if_ddr3_emif_0_pll_sharing_bfm                            ./libraries/fpga_mem_inst_mem_if_ddr3_emif_0_pll_sharing_bfm/                           
+ensure_lib                                                                             ./libraries/fpga_mem_inst_mem_if_ddr3_emif_0_status_bfm/                                
+vmap       fpga_mem_inst_mem_if_ddr3_emif_0_status_bfm                                 ./libraries/fpga_mem_inst_mem_if_ddr3_emif_0_status_bfm/                                
+ensure_lib                                                                             ./libraries/fpga_mem_inst_oct_bfm/                                                      
+vmap       fpga_mem_inst_oct_bfm                                                       ./libraries/fpga_mem_inst_oct_bfm/                                                      
+ensure_lib                                                                             ./libraries/fpga_mem_inst_reset_bfm/                                                    
+vmap       fpga_mem_inst_reset_bfm                                                     ./libraries/fpga_mem_inst_reset_bfm/                                                    
+ensure_lib                                                                             ./libraries/fpga_mem_inst_clk_bfm/                                                      
+vmap       fpga_mem_inst_clk_bfm                                                       ./libraries/fpga_mem_inst_clk_bfm/                                                      
+ensure_lib                                                                             ./libraries/fpga_mem_inst/                                                              
+vmap       fpga_mem_inst                                                               ./libraries/fpga_mem_inst/                                                              
+
+# ----------------------------------------
+# Compile device library files
+alias dev_com {
+  echo "\[exec\] dev_com"
+  if ![ string match "*ModelSim ALTERA*" [ vsim -version ] ] {
+    vlog     "$QUARTUS_INSTALL_DIR/eda/sim_lib/altera_primitives.v"                     -work altera_ver           
+    vlog     "$QUARTUS_INSTALL_DIR/eda/sim_lib/220model.v"                              -work lpm_ver              
+    vlog     "$QUARTUS_INSTALL_DIR/eda/sim_lib/sgate.v"                                 -work sgate_ver            
+    vlog     "$QUARTUS_INSTALL_DIR/eda/sim_lib/altera_mf.v"                             -work altera_mf_ver        
+    vlog -sv "$QUARTUS_INSTALL_DIR/eda/sim_lib/altera_lnsim.sv"                         -work altera_lnsim_ver     
+    vlog     "$QUARTUS_INSTALL_DIR/eda/sim_lib/mentor/cyclonev_atoms_ncrypt.v"          -work cyclonev_ver         
+    vlog     "$QUARTUS_INSTALL_DIR/eda/sim_lib/mentor/cyclonev_hmi_atoms_ncrypt.v"      -work cyclonev_ver         
+    vlog     "$QUARTUS_INSTALL_DIR/eda/sim_lib/cyclonev_atoms.v"                        -work cyclonev_ver         
+    vlog     "$QUARTUS_INSTALL_DIR/eda/sim_lib/mentor/cyclonev_hssi_atoms_ncrypt.v"     -work cyclonev_hssi_ver    
+    vlog     "$QUARTUS_INSTALL_DIR/eda/sim_lib/cyclonev_hssi_atoms.v"                   -work cyclonev_hssi_ver    
+    vlog     "$QUARTUS_INSTALL_DIR/eda/sim_lib/mentor/cyclonev_pcie_hip_atoms_ncrypt.v" -work cyclonev_pcie_hip_ver
+    vlog     "$QUARTUS_INSTALL_DIR/eda/sim_lib/cyclonev_pcie_hip_atoms.v"               -work cyclonev_pcie_hip_ver
+  }
+}
+
+# ----------------------------------------
+# Compile the design files in correct order
+alias com {
+  echo "\[exec\] com"
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/verbosity_pkg.sv"                                                                                      -work altera_common_sv_packages                                                  
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/avalon_mm_pkg.sv"                                                                                      -work altera_common_sv_packages                                                  
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/avalon_utilities_pkg.sv"                                                                               -work altera_common_sv_packages                                                  
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0_dmaster_p2b_adapter.v"                                                     -work p2b_adapter                                                                
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0_dmaster_b2p_adapter.v"                                                     -work b2p_adapter                                                                
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_avalon_packets_to_master.v"                                                                     -work transacto                                                                  
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_avalon_st_packets_to_bytes.v"                                                                   -work p2b                                                                        
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_avalon_st_bytes_to_packets.v"                                                                   -work b2p                                                                        
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0_dmaster_timing_adt.v"                                                      -work timing_adt                                                                 
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_avalon_st_jtag_interface.v"                                                                     -work jtag_phy_embedded_in_jtag_master                                           
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_jtag_dc_streaming.v"                                                                            -work jtag_phy_embedded_in_jtag_master                                           
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_jtag_sld_node.v"                                                                                -work jtag_phy_embedded_in_jtag_master                                           
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_jtag_streaming.v"                                                                               -work jtag_phy_embedded_in_jtag_master                                           
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_pli_streaming.v"                                                                                -work jtag_phy_embedded_in_jtag_master                                           
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_avalon_st_clock_crosser.v"                                                                      -work jtag_phy_embedded_in_jtag_master                                           
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_avalon_st_pipeline_base.v"                                                                      -work jtag_phy_embedded_in_jtag_master                                           
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_avalon_st_idle_remover.v"                                                                       -work jtag_phy_embedded_in_jtag_master                                           
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_avalon_st_idle_inserter.v"                                                                      -work jtag_phy_embedded_in_jtag_master                                           
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_avalon_st_handshake_clock_crosser.v"                               -L altera_common_sv_packages -work crosser                                                                    
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_avalon_st_clock_crosser.v"                                         -L altera_common_sv_packages -work crosser                                                                    
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_avalon_st_pipeline_base.v"                                         -L altera_common_sv_packages -work crosser                                                                    
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_merlin_arbitrator.sv"                                              -L altera_common_sv_packages -work rsp_xbar_mux_001                                                           
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mm_interconnect_0_rsp_xbar_mux_001.sv"                           -L altera_common_sv_packages -work rsp_xbar_mux_001                                                           
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_merlin_arbitrator.sv"                                              -L altera_common_sv_packages -work rsp_xbar_mux                                                               
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mm_interconnect_0_rsp_xbar_mux.sv"                               -L altera_common_sv_packages -work rsp_xbar_mux                                                               
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mm_interconnect_0_rsp_xbar_demux.sv"                             -L altera_common_sv_packages -work rsp_xbar_demux                                                             
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_merlin_arbitrator.sv"                                              -L altera_common_sv_packages -work cmd_xbar_mux                                                               
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mm_interconnect_0_cmd_xbar_mux.sv"                               -L altera_common_sv_packages -work cmd_xbar_mux                                                               
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mm_interconnect_0_cmd_xbar_demux_001.sv"                         -L altera_common_sv_packages -work cmd_xbar_demux_001                                                         
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mm_interconnect_0_cmd_xbar_demux.sv"                             -L altera_common_sv_packages -work cmd_xbar_demux                                                             
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mm_interconnect_0_id_router.sv"                                  -L altera_common_sv_packages -work id_router                                                                  
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mm_interconnect_0_addr_router_001.sv"                            -L altera_common_sv_packages -work addr_router_001                                                            
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mm_interconnect_0_addr_router.sv"                                -L altera_common_sv_packages -work addr_router                                                                
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_avalon_sc_fifo.v"                                                                               -work mem_if_ddr3_emif_0_avl_0_translator_avalon_universal_slave_0_agent_rsp_fifo
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_merlin_slave_agent.sv"                                             -L altera_common_sv_packages -work mem_if_ddr3_emif_0_avl_0_translator_avalon_universal_slave_0_agent         
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_merlin_burst_uncompressor.sv"                                      -L altera_common_sv_packages -work mem_if_ddr3_emif_0_avl_0_translator_avalon_universal_slave_0_agent         
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_merlin_master_agent.sv"                                            -L altera_common_sv_packages -work mm_bridge_10_m0_translator_avalon_universal_master_0_agent                 
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_merlin_slave_translator.sv"                                        -L altera_common_sv_packages -work mem_if_ddr3_emif_0_avl_0_translator                                        
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_merlin_master_translator.sv"                                       -L altera_common_sv_packages -work mm_bridge_10_m0_translator                                                 
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0_mm_interconnect_1.v"                                                       -work mm_interconnect_1                                                          
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_mem_if_dll_cyclonev.sv"                                            -L altera_common_sv_packages -work dll0                                                                       
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_mem_if_oct_cyclonev.sv"                                            -L altera_common_sv_packages -work oct0                                                                       
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_mem_if_hard_memory_controller_top_cyclonev.sv"                     -L altera_common_sv_packages -work c0                                                                         
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0_dmaster.v"                                                                 -work dmaster                                                                    
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0_s0.v"                                                                      -work s0                                                                         
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0_s0_mm_interconnect_0_rsp_xbar_mux_002.sv"     -L altera_common_sv_packages -work s0                                                                         
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0_s0_mm_interconnect_0_cmd_xbar_demux.sv"       -L altera_common_sv_packages -work s0                                                                         
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0_s0_mm_interconnect_0_cmd_xbar_demux_002.sv"   -L altera_common_sv_packages -work s0                                                                         
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0_s0_mm_interconnect_0_cmd_xbar_demux_001.sv"   -L altera_common_sv_packages -work s0                                                                         
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0_s0_irq_mapper.sv"                             -L altera_common_sv_packages -work s0                                                                         
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/sequencer_scc_sv_wrapper.sv"                                              -L altera_common_sv_packages -work s0                                                                         
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0_s0_mm_interconnect_0_rsp_xbar_demux_001.sv"   -L altera_common_sv_packages -work s0                                                                         
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_mem_if_sequencer_rst.sv"                                           -L altera_common_sv_packages -work s0                                                                         
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/sequencer_scc_siii_phase_decode.v"                                                                     -work s0                                                                         
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0_s0_mm_interconnect_0_addr_router_002.sv"      -L altera_common_sv_packages -work s0                                                                         
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_merlin_arbitrator.sv"                                              -L altera_common_sv_packages -work s0                                                                         
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0_s0_mm_interconnect_0.v"                                                    -work s0                                                                         
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0_s0_mm_interconnect_0_addr_router_001.sv"      -L altera_common_sv_packages -work s0                                                                         
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_merlin_slave_agent.sv"                                             -L altera_common_sv_packages -work s0                                                                         
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_merlin_traffic_limiter.sv"                                         -L altera_common_sv_packages -work s0                                                                         
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0_s0_mm_interconnect_0_cmd_xbar_mux.sv"         -L altera_common_sv_packages -work s0                                                                         
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/sequencer_reg_file.sv"                                                    -L altera_common_sv_packages -work s0                                                                         
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0_s0_mm_interconnect_0_cmd_xbar_mux_003.sv"     -L altera_common_sv_packages -work s0                                                                         
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_mem_if_simple_avalon_mm_bridge.sv"                                 -L altera_common_sv_packages -work s0                                                                         
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0_s0_mm_interconnect_0_rsp_xbar_mux_001.sv"     -L altera_common_sv_packages -work s0                                                                         
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_mem_if_sequencer_cpu_cv_sim_cpu_inst.v"                                                         -work s0                                                                         
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0_s0_mm_interconnect_0_id_router_001.sv"        -L altera_common_sv_packages -work s0                                                                         
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0_s0_mm_interconnect_0_addr_router.sv"          -L altera_common_sv_packages -work s0                                                                         
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0_s0_mm_interconnect_0_id_router.sv"            -L altera_common_sv_packages -work s0                                                                         
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/sequencer_scc_siii_wrapper.sv"                                            -L altera_common_sv_packages -work s0                                                                         
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0_s0_mm_interconnect_0_rsp_xbar_mux.sv"         -L altera_common_sv_packages -work s0                                                                         
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_mem_if_sequencer_mem_no_ifdef_params.sv"                           -L altera_common_sv_packages -work s0                                                                         
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0_s0_mm_interconnect_0_cmd_xbar_mux_001.sv"     -L altera_common_sv_packages -work s0                                                                         
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/sequencer_scc_sv_phase_decode.v"                                                                       -work s0                                                                         
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/sequencer_scc_acv_phase_decode.v"                                                                      -work s0                                                                         
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0_s0_mm_interconnect_0_rsp_xbar_demux_003.sv"   -L altera_common_sv_packages -work s0                                                                         
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_merlin_burst_uncompressor.sv"                                      -L altera_common_sv_packages -work s0                                                                         
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_merlin_master_agent.sv"                                            -L altera_common_sv_packages -work s0                                                                         
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/sequencer_scc_acv_wrapper.sv"                                             -L altera_common_sv_packages -work s0                                                                         
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_merlin_reorder_memory.sv"                                          -L altera_common_sv_packages -work s0                                                                         
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0_s0_mm_interconnect_0_id_router_003.sv"        -L altera_common_sv_packages -work s0                                                                         
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/sequencer_scc_reg_file.v"                                                                              -work s0                                                                         
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/sequencer_scc_mgr.sv"                                                     -L altera_common_sv_packages -work s0                                                                         
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_mem_if_sequencer_cpu_cv_sim_cpu_inst_test_bench.v"                                              -work s0                                                                         
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_avalon_mm_bridge.v"                                                                             -work s0                                                                         
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0_p0_clock_pair_generator.v"                                                 -work p0                                                                         
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0_p0_acv_hard_addr_cmd_pads.v"                                               -work p0                                                                         
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0_p0_acv_hard_memphy.v"                                                      -work p0                                                                         
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0_p0_acv_ldc.v"                                                              -work p0                                                                         
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0_p0_acv_hard_io_pads.v"                                                     -work p0                                                                         
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0_p0_generic_ddio.v"                                                         -work p0                                                                         
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0_p0_reset.v"                                                                -work p0                                                                         
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0_p0_reset_sync.v"                                                           -work p0                                                                         
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0_p0_phy_csr.sv"                                -L altera_common_sv_packages -work p0                                                                         
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0_p0_iss_probe.v"                                                            -work p0                                                                         
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0_p0.sv"                                        -L altera_common_sv_packages -work p0                                                                         
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0_p0_altdqdqs.v"                                                             -work p0                                                                         
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altdq_dqs2_acv_connect_to_hard_phy_cyclonev.sv"                           -L altera_common_sv_packages -work p0                                                                         
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0_pll0.sv"                                      -L altera_common_sv_packages -work pll0                                                                       
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mm_interconnect_0.v"                                                                          -work mm_interconnect_0                                                          
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_avalon_mm_bridge.v"                                                                             -work mm_bridge_0                                                                
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem_mem_if_ddr3_emif_0.v"                                                                         -work mem_if_ddr3_emif_0                                                         
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_reset_controller.v"                                                                             -work rst_controller                                                             
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_reset_synchronizer.v"                                                                           -work rst_controller                                                             
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/alt_mem_if_ddr3_mem_model_top_ddr3_mem_if_dm_pins_en_mem_if_dqsn_en.sv"   -L altera_common_sv_packages -work mem_if_ddr3_emif_0_mem_model                                               
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/alt_mem_if_common_ddr_mem_model_ddr3_mem_if_dm_pins_en_mem_if_dqsn_en.sv" -L altera_common_sv_packages -work mem_if_ddr3_emif_0_mem_model                                               
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_avalon_mm_master_bfm.sv"                                           -L altera_common_sv_packages -work fpga_mem_inst_mrx_bfm                                                      
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_conduit_bfm_0003.sv"                                               -L altera_common_sv_packages -work fpga_mem_inst_mem_if_ddr3_emif_0_pll_sharing_bfm                           
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_conduit_bfm_0002.sv"                                               -L altera_common_sv_packages -work fpga_mem_inst_mem_if_ddr3_emif_0_status_bfm                                
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_conduit_bfm.sv"                                                    -L altera_common_sv_packages -work fpga_mem_inst_oct_bfm                                                      
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_avalon_reset_source.sv"                                            -L altera_common_sv_packages -work fpga_mem_inst_reset_bfm                                                    
+  vlog -sv "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/altera_avalon_clock_source.sv"                                            -L altera_common_sv_packages -work fpga_mem_inst_clk_bfm                                                      
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/submodules/fpga_mem.v"                                                                                            -work fpga_mem_inst                                                              
+  vlog     "$QSYS_SIMDIR/fpga_mem_tb/simulation/fpga_mem_tb.v"                                                                                                                                                                                     
+}
+
+# ----------------------------------------
+# Elaborate top level design
+alias elab {
+  echo "\[exec\] elab"
+  eval vsim -t ps $ELAB_OPTIONS -L work -L work_lib -L altera_common_sv_packages -L p2b_adapter -L b2p_adapter -L transacto -L p2b -L b2p -L timing_adt -L jtag_phy_embedded_in_jtag_master -L crosser -L rsp_xbar_mux_001 -L rsp_xbar_mux -L rsp_xbar_demux -L cmd_xbar_mux -L cmd_xbar_demux_001 -L cmd_xbar_demux -L id_router -L addr_router_001 -L addr_router -L mem_if_ddr3_emif_0_avl_0_translator_avalon_universal_slave_0_agent_rsp_fifo -L mem_if_ddr3_emif_0_avl_0_translator_avalon_universal_slave_0_agent -L mm_bridge_10_m0_translator_avalon_universal_master_0_agent -L mem_if_ddr3_emif_0_avl_0_translator -L mm_bridge_10_m0_translator -L mm_interconnect_1 -L dll0 -L oct0 -L c0 -L dmaster -L s0 -L p0 -L pll0 -L mm_interconnect_0 -L mm_bridge_0 -L mem_if_ddr3_emif_0 -L rst_controller -L mem_if_ddr3_emif_0_mem_model -L fpga_mem_inst_mrx_bfm -L fpga_mem_inst_mem_if_ddr3_emif_0_pll_sharing_bfm -L fpga_mem_inst_mem_if_ddr3_emif_0_status_bfm -L fpga_mem_inst_oct_bfm -L fpga_mem_inst_reset_bfm -L fpga_mem_inst_clk_bfm -L fpga_mem_inst -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver $TOP_LEVEL_NAME
+}
+
+# ----------------------------------------
+# Elaborate the top level design with novopt option
+alias elab_debug {
+  echo "\[exec\] elab_debug"
+  eval vsim -novopt -t ps $ELAB_OPTIONS -L work -L work_lib -L altera_common_sv_packages -L p2b_adapter -L b2p_adapter -L transacto -L p2b -L b2p -L timing_adt -L jtag_phy_embedded_in_jtag_master -L crosser -L rsp_xbar_mux_001 -L rsp_xbar_mux -L rsp_xbar_demux -L cmd_xbar_mux -L cmd_xbar_demux_001 -L cmd_xbar_demux -L id_router -L addr_router_001 -L addr_router -L mem_if_ddr3_emif_0_avl_0_translator_avalon_universal_slave_0_agent_rsp_fifo -L mem_if_ddr3_emif_0_avl_0_translator_avalon_universal_slave_0_agent -L mm_bridge_10_m0_translator_avalon_universal_master_0_agent -L mem_if_ddr3_emif_0_avl_0_translator -L mm_bridge_10_m0_translator -L mm_interconnect_1 -L dll0 -L oct0 -L c0 -L dmaster -L s0 -L p0 -L pll0 -L mm_interconnect_0 -L mm_bridge_0 -L mem_if_ddr3_emif_0 -L rst_controller -L mem_if_ddr3_emif_0_mem_model -L fpga_mem_inst_mrx_bfm -L fpga_mem_inst_mem_if_ddr3_emif_0_pll_sharing_bfm -L fpga_mem_inst_mem_if_ddr3_emif_0_status_bfm -L fpga_mem_inst_oct_bfm -L fpga_mem_inst_reset_bfm -L fpga_mem_inst_clk_bfm -L fpga_mem_inst -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver $TOP_LEVEL_NAME
+}
+
+# ----------------------------------------
+# Compile all the design files and elaborate the top level design
+alias ld "
+  dev_com
+  com
+  elab
+"
+
+# ----------------------------------------
+# Compile all the design files and elaborate the top level design with -novopt
+alias ld_debug "
+  dev_com
+  com
+  elab_debug
+"
+
+# ----------------------------------------
+# Print out user commmand line aliases
+alias h {
+  echo "List Of Command Line Aliases"
+  echo
+  echo "file_copy                     -- Copy ROM/RAM files to simulation directory"
+  echo
+  echo "dev_com                       -- Compile device library files"
+  echo
+  echo "com                           -- Compile the design files in correct order"
+  echo
+  echo "elab                          -- Elaborate top level design"
+  echo
+  echo "elab_debug                    -- Elaborate the top level design with novopt option"
+  echo
+  echo "ld                            -- Compile all the design files and elaborate the top level design"
+  echo
+  echo "ld_debug                      -- Compile all the design files and elaborate the top level design with -novopt"
+  echo
+  echo 
+  echo
+  echo "List Of Variables"
+  echo
+  echo "TOP_LEVEL_NAME                -- Top level module name."
+  echo
+  echo "SYSTEM_INSTANCE_NAME          -- Instantiated system module name inside top level module."
+  echo
+  echo "QSYS_SIMDIR                   -- Qsys base simulation directory."
+  echo
+  echo "QUARTUS_INSTALL_DIR           -- Quartus installation directory."
+}
+file_copy
+h

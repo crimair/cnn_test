@@ -1,0 +1,1253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system name="$${FILENAME}">
+ <component
+   name="$${FILENAME}"
+   displayName="$${FILENAME}"
+   version="1.0"
+   description=""
+   tags=""
+   categories="" />
+ <parameter name="bonusData"><![CDATA[bonusData 
+{
+   element fpga_mem_inst
+   {
+      datum _sortIndex
+      {
+         value = "0";
+         type = "int";
+      }
+   }
+   element fpga_mem_inst_clk_bfm
+   {
+      datum _sortIndex
+      {
+         value = "1";
+         type = "int";
+      }
+   }
+   element fpga_mem_inst_hps_bfm
+   {
+      datum _sortIndex
+      {
+         value = "17";
+         type = "int";
+      }
+   }
+   element fpga_mem_inst_hps_clk_bfm
+   {
+      datum _sortIndex
+      {
+         value = "2";
+         type = "int";
+      }
+   }
+   element fpga_mem_inst_mem_if_ddr3_emif_0_pll_sharing_bfm
+   {
+      datum _sortIndex
+      {
+         value = "6";
+         type = "int";
+      }
+   }
+   element fpga_mem_inst_mem_if_ddr3_emif_0_status_bfm
+   {
+      datum _sortIndex
+      {
+         value = "5";
+         type = "int";
+      }
+   }
+   element fpga_mem_inst_mr0_bfm
+   {
+      datum _sortIndex
+      {
+         value = "8";
+         type = "int";
+      }
+   }
+   element fpga_mem_inst_mr1_bfm
+   {
+      datum _sortIndex
+      {
+         value = "9";
+         type = "int";
+      }
+   }
+   element fpga_mem_inst_mr2_bfm
+   {
+      datum _sortIndex
+      {
+         value = "10";
+         type = "int";
+      }
+   }
+   element fpga_mem_inst_mr3_bfm
+   {
+      datum _sortIndex
+      {
+         value = "11";
+         type = "int";
+      }
+   }
+   element fpga_mem_inst_mrx_bfm
+   {
+      datum _sortIndex
+      {
+         value = "7";
+         type = "int";
+      }
+   }
+   element fpga_mem_inst_mw0_bfm
+   {
+      datum _sortIndex
+      {
+         value = "13";
+         type = "int";
+      }
+   }
+   element fpga_mem_inst_mw1_bfm
+   {
+      datum _sortIndex
+      {
+         value = "14";
+         type = "int";
+      }
+   }
+   element fpga_mem_inst_mw2_bfm
+   {
+      datum _sortIndex
+      {
+         value = "15";
+         type = "int";
+      }
+   }
+   element fpga_mem_inst_mw3_bfm
+   {
+      datum _sortIndex
+      {
+         value = "16";
+         type = "int";
+      }
+   }
+   element fpga_mem_inst_mwa_bfm
+   {
+      datum _sortIndex
+      {
+         value = "18";
+         type = "int";
+      }
+   }
+   element fpga_mem_inst_mwx_bfm
+   {
+      datum _sortIndex
+      {
+         value = "12";
+         type = "int";
+      }
+   }
+   element fpga_mem_inst_oct_bfm
+   {
+      datum _sortIndex
+      {
+         value = "4";
+         type = "int";
+      }
+   }
+   element fpga_mem_inst_reset_bfm
+   {
+      datum _sortIndex
+      {
+         value = "3";
+         type = "int";
+      }
+   }
+   element mem_if_ddr3_emif_0_mem_model
+   {
+      datum _sortIndex
+      {
+         value = "19";
+         type = "int";
+      }
+   }
+}
+]]></parameter>
+ <parameter name="clockCrossingAdapter" value="HANDSHAKE" />
+ <parameter name="device" value="5CSXFC6D6F31C6" />
+ <parameter name="deviceFamily" value="Cyclone V" />
+ <parameter name="deviceSpeedGrade" value="6_H6" />
+ <parameter name="fabricMode" value="QSYS" />
+ <parameter name="generateLegacySim" value="false" />
+ <parameter name="generationId" value="0" />
+ <parameter name="globalResetBus" value="false" />
+ <parameter name="hdlLanguage" value="VERILOG" />
+ <parameter name="maxAdditionalLatency" value="1" />
+ <parameter name="projectName" value="top.qpf" />
+ <parameter name="sopcBorderPoints" value="false" />
+ <parameter name="systemHash" value="0" />
+ <parameter name="timeStamp" value="0" />
+ <parameter name="useTestBenchNamingPattern" value="true" />
+ <instanceScript></instanceScript>
+ <module kind="fpga_mem" version="1.0" enabled="1" name="fpga_mem_inst">
+  <parameter name="AUTO_GENERATION_ID" value="0" />
+  <parameter name="AUTO_UNIQUE_ID" value="fpga_mem" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone V" />
+  <parameter name="AUTO_DEVICE" value="5CSXFC6D6F31C6" />
+  <parameter name="AUTO_CLK_CLOCK_RATE" value="0" />
+  <parameter name="AUTO_CLK_CLOCK_DOMAIN" value="2" />
+  <parameter name="AUTO_CLK_RESET_DOMAIN" value="2" />
+  <parameter name="AUTO_HPS_CLK_CLOCK_RATE" value="0" />
+  <parameter name="AUTO_HPS_CLK_CLOCK_DOMAIN" value="3" />
+  <parameter name="AUTO_HPS_CLK_RESET_DOMAIN" value="3" />
+ </module>
+ <module
+   kind="altera_avalon_clock_source"
+   version="13.1"
+   enabled="1"
+   name="fpga_mem_inst_clk_bfm">
+  <parameter name="CLOCK_RATE" value="50000000" />
+  <parameter name="CLOCK_UNIT" value="1" />
+ </module>
+ <module
+   kind="altera_avalon_clock_source"
+   version="13.1"
+   enabled="1"
+   name="fpga_mem_inst_hps_clk_bfm">
+  <parameter name="CLOCK_RATE" value="50000000" />
+  <parameter name="CLOCK_UNIT" value="1" />
+ </module>
+ <module
+   kind="altera_avalon_reset_source"
+   version="13.1"
+   enabled="1"
+   name="fpga_mem_inst_reset_bfm">
+  <parameter name="ASSERT_HIGH_RESET" value="0" />
+  <parameter name="INITIAL_RESET_CYCLES" value="50" />
+ </module>
+ <module
+   kind="altera_conduit_bfm"
+   version="13.1"
+   enabled="1"
+   name="fpga_mem_inst_oct_bfm">
+  <parameter name="CLOCKED_SIGNAL" value="false" />
+  <parameter name="ENABLE_RESET" value="false" />
+  <parameter name="SIGNAL_ROLES" value="rzqin" />
+  <parameter name="SIGNAL_WIDTHS" value="1" />
+  <parameter name="SIGNAL_DIRECTIONS" value="output" />
+ </module>
+ <module
+   kind="altera_conduit_bfm"
+   version="13.1"
+   enabled="1"
+   name="fpga_mem_inst_mem_if_ddr3_emif_0_status_bfm">
+  <parameter name="CLOCKED_SIGNAL" value="false" />
+  <parameter name="ENABLE_RESET" value="false" />
+  <parameter name="SIGNAL_ROLES">local_init_done,local_cal_success,local_cal_fail</parameter>
+  <parameter name="SIGNAL_WIDTHS" value="1,1,1" />
+  <parameter name="SIGNAL_DIRECTIONS" value="input,input,input" />
+ </module>
+ <module
+   kind="altera_conduit_bfm"
+   version="13.1"
+   enabled="1"
+   name="fpga_mem_inst_mem_if_ddr3_emif_0_pll_sharing_bfm">
+  <parameter name="CLOCKED_SIGNAL" value="false" />
+  <parameter name="ENABLE_RESET" value="false" />
+  <parameter name="SIGNAL_ROLES">pll_mem_clk,pll_write_clk,pll_locked,pll_write_clk_pre_phy_clk,pll_addr_cmd_clk,pll_avl_clk,pll_config_clk,pll_dr_clk,pll_dr_clk_pre_phy_clk,pll_mem_phy_clk,afi_phy_clk,pll_avl_phy_clk</parameter>
+  <parameter name="SIGNAL_WIDTHS">1,1,1,1,1,1,1,1,1,1,1,1</parameter>
+  <parameter name="SIGNAL_DIRECTIONS">input,input,input,input,input,input,input,input,input,input,input,input</parameter>
+ </module>
+ <module
+   kind="altera_avalon_mm_master_bfm"
+   version="13.1"
+   enabled="1"
+   name="fpga_mem_inst_mrx_bfm">
+  <parameter name="AV_ADDRESS_W" value="26" />
+  <parameter name="AV_SYMBOL_W" value="8" />
+  <parameter name="AV_NUMSYMBOLS" value="16" />
+  <parameter name="AV_BURSTCOUNT_W" value="6" />
+  <parameter name="AV_READRESPONSE_W" value="1" />
+  <parameter name="AV_WRITERESPONSE_W" value="1" />
+  <parameter name="USE_READ" value="1" />
+  <parameter name="USE_WRITE" value="1" />
+  <parameter name="USE_ADDRESS" value="1" />
+  <parameter name="USE_BYTE_ENABLE" value="1" />
+  <parameter name="USE_BURSTCOUNT" value="1" />
+  <parameter name="USE_READ_DATA" value="1" />
+  <parameter name="USE_READ_DATA_VALID" value="1" />
+  <parameter name="USE_WRITE_DATA" value="1" />
+  <parameter name="USE_BEGIN_TRANSFER" value="0" />
+  <parameter name="USE_BEGIN_BURST_TRANSFER" value="0" />
+  <parameter name="USE_ARBITERLOCK" value="0" />
+  <parameter name="USE_LOCK" value="0" />
+  <parameter name="USE_DEBUGACCESS" value="1" />
+  <parameter name="USE_WAIT_REQUEST" value="1" />
+  <parameter name="USE_TRANSACTIONID" value="0" />
+  <parameter name="USE_WRITERESPONSE" value="0" />
+  <parameter name="USE_READRESPONSE" value="0" />
+  <parameter name="USE_CLKEN" value="0" />
+  <parameter name="ASSERT_HIGH_RESET" value="1" />
+  <parameter name="ASSERT_HIGH_WAITREQUEST" value="1" />
+  <parameter name="ASSERT_HIGH_READ" value="1" />
+  <parameter name="ASSERT_HIGH_WRITE" value="1" />
+  <parameter name="ASSERT_HIGH_BYTEENABLE" value="1" />
+  <parameter name="ASSERT_HIGH_READDATAVALID" value="1" />
+  <parameter name="ASSERT_HIGH_ARBITERLOCK" value="1" />
+  <parameter name="ASSERT_HIGH_LOCK" value="1" />
+  <parameter name="AV_CONSTANT_BURST_BEHAVIOR" value="1" />
+  <parameter name="AV_BURST_LINEWRAP" value="0" />
+  <parameter name="AV_BURST_BNDR_ONLY" value="0" />
+  <parameter name="AV_MAX_PENDING_READS" value="4" />
+  <parameter name="AV_MAX_PENDING_WRITES" value="0" />
+  <parameter name="AV_FIX_READ_LATENCY" value="0" />
+  <parameter name="AV_READ_WAIT_TIME" value="0" />
+  <parameter name="AV_WRITE_WAIT_TIME" value="0" />
+  <parameter name="REGISTER_WAITREQUEST" value="0" />
+  <parameter name="AV_REGISTERINCOMINGSIGNALS" value="0" />
+  <parameter name="ADDRESS_UNITS" value="WORDS" />
+  <parameter name="VHDL_ID" value="0" />
+ </module>
+ <module
+   kind="altera_avalon_mm_master_bfm"
+   version="13.1"
+   enabled="1"
+   name="fpga_mem_inst_mr0_bfm">
+  <parameter name="AV_ADDRESS_W" value="26" />
+  <parameter name="AV_SYMBOL_W" value="8" />
+  <parameter name="AV_NUMSYMBOLS" value="16" />
+  <parameter name="AV_BURSTCOUNT_W" value="6" />
+  <parameter name="AV_READRESPONSE_W" value="1" />
+  <parameter name="AV_WRITERESPONSE_W" value="1" />
+  <parameter name="USE_READ" value="1" />
+  <parameter name="USE_WRITE" value="1" />
+  <parameter name="USE_ADDRESS" value="1" />
+  <parameter name="USE_BYTE_ENABLE" value="1" />
+  <parameter name="USE_BURSTCOUNT" value="1" />
+  <parameter name="USE_READ_DATA" value="1" />
+  <parameter name="USE_READ_DATA_VALID" value="1" />
+  <parameter name="USE_WRITE_DATA" value="1" />
+  <parameter name="USE_BEGIN_TRANSFER" value="0" />
+  <parameter name="USE_BEGIN_BURST_TRANSFER" value="0" />
+  <parameter name="USE_ARBITERLOCK" value="0" />
+  <parameter name="USE_LOCK" value="0" />
+  <parameter name="USE_DEBUGACCESS" value="1" />
+  <parameter name="USE_WAIT_REQUEST" value="1" />
+  <parameter name="USE_TRANSACTIONID" value="0" />
+  <parameter name="USE_WRITERESPONSE" value="0" />
+  <parameter name="USE_READRESPONSE" value="0" />
+  <parameter name="USE_CLKEN" value="0" />
+  <parameter name="ASSERT_HIGH_RESET" value="1" />
+  <parameter name="ASSERT_HIGH_WAITREQUEST" value="1" />
+  <parameter name="ASSERT_HIGH_READ" value="1" />
+  <parameter name="ASSERT_HIGH_WRITE" value="1" />
+  <parameter name="ASSERT_HIGH_BYTEENABLE" value="1" />
+  <parameter name="ASSERT_HIGH_READDATAVALID" value="1" />
+  <parameter name="ASSERT_HIGH_ARBITERLOCK" value="1" />
+  <parameter name="ASSERT_HIGH_LOCK" value="1" />
+  <parameter name="AV_CONSTANT_BURST_BEHAVIOR" value="1" />
+  <parameter name="AV_BURST_LINEWRAP" value="0" />
+  <parameter name="AV_BURST_BNDR_ONLY" value="0" />
+  <parameter name="AV_MAX_PENDING_READS" value="4" />
+  <parameter name="AV_MAX_PENDING_WRITES" value="0" />
+  <parameter name="AV_FIX_READ_LATENCY" value="0" />
+  <parameter name="AV_READ_WAIT_TIME" value="0" />
+  <parameter name="AV_WRITE_WAIT_TIME" value="0" />
+  <parameter name="REGISTER_WAITREQUEST" value="0" />
+  <parameter name="AV_REGISTERINCOMINGSIGNALS" value="0" />
+  <parameter name="ADDRESS_UNITS" value="WORDS" />
+  <parameter name="VHDL_ID" value="1" />
+ </module>
+ <module
+   kind="altera_avalon_mm_master_bfm"
+   version="13.1"
+   enabled="1"
+   name="fpga_mem_inst_mr1_bfm">
+  <parameter name="AV_ADDRESS_W" value="26" />
+  <parameter name="AV_SYMBOL_W" value="8" />
+  <parameter name="AV_NUMSYMBOLS" value="16" />
+  <parameter name="AV_BURSTCOUNT_W" value="6" />
+  <parameter name="AV_READRESPONSE_W" value="1" />
+  <parameter name="AV_WRITERESPONSE_W" value="1" />
+  <parameter name="USE_READ" value="1" />
+  <parameter name="USE_WRITE" value="1" />
+  <parameter name="USE_ADDRESS" value="1" />
+  <parameter name="USE_BYTE_ENABLE" value="1" />
+  <parameter name="USE_BURSTCOUNT" value="1" />
+  <parameter name="USE_READ_DATA" value="1" />
+  <parameter name="USE_READ_DATA_VALID" value="1" />
+  <parameter name="USE_WRITE_DATA" value="1" />
+  <parameter name="USE_BEGIN_TRANSFER" value="0" />
+  <parameter name="USE_BEGIN_BURST_TRANSFER" value="0" />
+  <parameter name="USE_ARBITERLOCK" value="0" />
+  <parameter name="USE_LOCK" value="0" />
+  <parameter name="USE_DEBUGACCESS" value="1" />
+  <parameter name="USE_WAIT_REQUEST" value="1" />
+  <parameter name="USE_TRANSACTIONID" value="0" />
+  <parameter name="USE_WRITERESPONSE" value="0" />
+  <parameter name="USE_READRESPONSE" value="0" />
+  <parameter name="USE_CLKEN" value="0" />
+  <parameter name="ASSERT_HIGH_RESET" value="1" />
+  <parameter name="ASSERT_HIGH_WAITREQUEST" value="1" />
+  <parameter name="ASSERT_HIGH_READ" value="1" />
+  <parameter name="ASSERT_HIGH_WRITE" value="1" />
+  <parameter name="ASSERT_HIGH_BYTEENABLE" value="1" />
+  <parameter name="ASSERT_HIGH_READDATAVALID" value="1" />
+  <parameter name="ASSERT_HIGH_ARBITERLOCK" value="1" />
+  <parameter name="ASSERT_HIGH_LOCK" value="1" />
+  <parameter name="AV_CONSTANT_BURST_BEHAVIOR" value="1" />
+  <parameter name="AV_BURST_LINEWRAP" value="0" />
+  <parameter name="AV_BURST_BNDR_ONLY" value="0" />
+  <parameter name="AV_MAX_PENDING_READS" value="4" />
+  <parameter name="AV_MAX_PENDING_WRITES" value="0" />
+  <parameter name="AV_FIX_READ_LATENCY" value="0" />
+  <parameter name="AV_READ_WAIT_TIME" value="0" />
+  <parameter name="AV_WRITE_WAIT_TIME" value="0" />
+  <parameter name="REGISTER_WAITREQUEST" value="0" />
+  <parameter name="AV_REGISTERINCOMINGSIGNALS" value="0" />
+  <parameter name="ADDRESS_UNITS" value="WORDS" />
+  <parameter name="VHDL_ID" value="2" />
+ </module>
+ <module
+   kind="altera_avalon_mm_master_bfm"
+   version="13.1"
+   enabled="1"
+   name="fpga_mem_inst_mr2_bfm">
+  <parameter name="AV_ADDRESS_W" value="26" />
+  <parameter name="AV_SYMBOL_W" value="8" />
+  <parameter name="AV_NUMSYMBOLS" value="16" />
+  <parameter name="AV_BURSTCOUNT_W" value="6" />
+  <parameter name="AV_READRESPONSE_W" value="1" />
+  <parameter name="AV_WRITERESPONSE_W" value="1" />
+  <parameter name="USE_READ" value="1" />
+  <parameter name="USE_WRITE" value="1" />
+  <parameter name="USE_ADDRESS" value="1" />
+  <parameter name="USE_BYTE_ENABLE" value="1" />
+  <parameter name="USE_BURSTCOUNT" value="1" />
+  <parameter name="USE_READ_DATA" value="1" />
+  <parameter name="USE_READ_DATA_VALID" value="1" />
+  <parameter name="USE_WRITE_DATA" value="1" />
+  <parameter name="USE_BEGIN_TRANSFER" value="0" />
+  <parameter name="USE_BEGIN_BURST_TRANSFER" value="0" />
+  <parameter name="USE_ARBITERLOCK" value="0" />
+  <parameter name="USE_LOCK" value="0" />
+  <parameter name="USE_DEBUGACCESS" value="1" />
+  <parameter name="USE_WAIT_REQUEST" value="1" />
+  <parameter name="USE_TRANSACTIONID" value="0" />
+  <parameter name="USE_WRITERESPONSE" value="0" />
+  <parameter name="USE_READRESPONSE" value="0" />
+  <parameter name="USE_CLKEN" value="0" />
+  <parameter name="ASSERT_HIGH_RESET" value="1" />
+  <parameter name="ASSERT_HIGH_WAITREQUEST" value="1" />
+  <parameter name="ASSERT_HIGH_READ" value="1" />
+  <parameter name="ASSERT_HIGH_WRITE" value="1" />
+  <parameter name="ASSERT_HIGH_BYTEENABLE" value="1" />
+  <parameter name="ASSERT_HIGH_READDATAVALID" value="1" />
+  <parameter name="ASSERT_HIGH_ARBITERLOCK" value="1" />
+  <parameter name="ASSERT_HIGH_LOCK" value="1" />
+  <parameter name="AV_CONSTANT_BURST_BEHAVIOR" value="1" />
+  <parameter name="AV_BURST_LINEWRAP" value="0" />
+  <parameter name="AV_BURST_BNDR_ONLY" value="0" />
+  <parameter name="AV_MAX_PENDING_READS" value="4" />
+  <parameter name="AV_MAX_PENDING_WRITES" value="0" />
+  <parameter name="AV_FIX_READ_LATENCY" value="0" />
+  <parameter name="AV_READ_WAIT_TIME" value="0" />
+  <parameter name="AV_WRITE_WAIT_TIME" value="0" />
+  <parameter name="REGISTER_WAITREQUEST" value="0" />
+  <parameter name="AV_REGISTERINCOMINGSIGNALS" value="0" />
+  <parameter name="ADDRESS_UNITS" value="WORDS" />
+  <parameter name="VHDL_ID" value="3" />
+ </module>
+ <module
+   kind="altera_avalon_mm_master_bfm"
+   version="13.1"
+   enabled="1"
+   name="fpga_mem_inst_mr3_bfm">
+  <parameter name="AV_ADDRESS_W" value="26" />
+  <parameter name="AV_SYMBOL_W" value="8" />
+  <parameter name="AV_NUMSYMBOLS" value="16" />
+  <parameter name="AV_BURSTCOUNT_W" value="6" />
+  <parameter name="AV_READRESPONSE_W" value="1" />
+  <parameter name="AV_WRITERESPONSE_W" value="1" />
+  <parameter name="USE_READ" value="1" />
+  <parameter name="USE_WRITE" value="1" />
+  <parameter name="USE_ADDRESS" value="1" />
+  <parameter name="USE_BYTE_ENABLE" value="1" />
+  <parameter name="USE_BURSTCOUNT" value="1" />
+  <parameter name="USE_READ_DATA" value="1" />
+  <parameter name="USE_READ_DATA_VALID" value="1" />
+  <parameter name="USE_WRITE_DATA" value="1" />
+  <parameter name="USE_BEGIN_TRANSFER" value="0" />
+  <parameter name="USE_BEGIN_BURST_TRANSFER" value="0" />
+  <parameter name="USE_ARBITERLOCK" value="0" />
+  <parameter name="USE_LOCK" value="0" />
+  <parameter name="USE_DEBUGACCESS" value="1" />
+  <parameter name="USE_WAIT_REQUEST" value="1" />
+  <parameter name="USE_TRANSACTIONID" value="0" />
+  <parameter name="USE_WRITERESPONSE" value="0" />
+  <parameter name="USE_READRESPONSE" value="0" />
+  <parameter name="USE_CLKEN" value="0" />
+  <parameter name="ASSERT_HIGH_RESET" value="1" />
+  <parameter name="ASSERT_HIGH_WAITREQUEST" value="1" />
+  <parameter name="ASSERT_HIGH_READ" value="1" />
+  <parameter name="ASSERT_HIGH_WRITE" value="1" />
+  <parameter name="ASSERT_HIGH_BYTEENABLE" value="1" />
+  <parameter name="ASSERT_HIGH_READDATAVALID" value="1" />
+  <parameter name="ASSERT_HIGH_ARBITERLOCK" value="1" />
+  <parameter name="ASSERT_HIGH_LOCK" value="1" />
+  <parameter name="AV_CONSTANT_BURST_BEHAVIOR" value="1" />
+  <parameter name="AV_BURST_LINEWRAP" value="0" />
+  <parameter name="AV_BURST_BNDR_ONLY" value="0" />
+  <parameter name="AV_MAX_PENDING_READS" value="4" />
+  <parameter name="AV_MAX_PENDING_WRITES" value="0" />
+  <parameter name="AV_FIX_READ_LATENCY" value="0" />
+  <parameter name="AV_READ_WAIT_TIME" value="0" />
+  <parameter name="AV_WRITE_WAIT_TIME" value="0" />
+  <parameter name="REGISTER_WAITREQUEST" value="0" />
+  <parameter name="AV_REGISTERINCOMINGSIGNALS" value="0" />
+  <parameter name="ADDRESS_UNITS" value="WORDS" />
+  <parameter name="VHDL_ID" value="4" />
+ </module>
+ <module
+   kind="altera_avalon_mm_master_bfm"
+   version="13.1"
+   enabled="1"
+   name="fpga_mem_inst_mwx_bfm">
+  <parameter name="AV_ADDRESS_W" value="26" />
+  <parameter name="AV_SYMBOL_W" value="8" />
+  <parameter name="AV_NUMSYMBOLS" value="16" />
+  <parameter name="AV_BURSTCOUNT_W" value="6" />
+  <parameter name="AV_READRESPONSE_W" value="1" />
+  <parameter name="AV_WRITERESPONSE_W" value="1" />
+  <parameter name="USE_READ" value="1" />
+  <parameter name="USE_WRITE" value="1" />
+  <parameter name="USE_ADDRESS" value="1" />
+  <parameter name="USE_BYTE_ENABLE" value="1" />
+  <parameter name="USE_BURSTCOUNT" value="1" />
+  <parameter name="USE_READ_DATA" value="1" />
+  <parameter name="USE_READ_DATA_VALID" value="1" />
+  <parameter name="USE_WRITE_DATA" value="1" />
+  <parameter name="USE_BEGIN_TRANSFER" value="0" />
+  <parameter name="USE_BEGIN_BURST_TRANSFER" value="0" />
+  <parameter name="USE_ARBITERLOCK" value="0" />
+  <parameter name="USE_LOCK" value="0" />
+  <parameter name="USE_DEBUGACCESS" value="1" />
+  <parameter name="USE_WAIT_REQUEST" value="1" />
+  <parameter name="USE_TRANSACTIONID" value="0" />
+  <parameter name="USE_WRITERESPONSE" value="0" />
+  <parameter name="USE_READRESPONSE" value="0" />
+  <parameter name="USE_CLKEN" value="0" />
+  <parameter name="ASSERT_HIGH_RESET" value="1" />
+  <parameter name="ASSERT_HIGH_WAITREQUEST" value="1" />
+  <parameter name="ASSERT_HIGH_READ" value="1" />
+  <parameter name="ASSERT_HIGH_WRITE" value="1" />
+  <parameter name="ASSERT_HIGH_BYTEENABLE" value="1" />
+  <parameter name="ASSERT_HIGH_READDATAVALID" value="1" />
+  <parameter name="ASSERT_HIGH_ARBITERLOCK" value="1" />
+  <parameter name="ASSERT_HIGH_LOCK" value="1" />
+  <parameter name="AV_CONSTANT_BURST_BEHAVIOR" value="1" />
+  <parameter name="AV_BURST_LINEWRAP" value="0" />
+  <parameter name="AV_BURST_BNDR_ONLY" value="0" />
+  <parameter name="AV_MAX_PENDING_READS" value="4" />
+  <parameter name="AV_MAX_PENDING_WRITES" value="0" />
+  <parameter name="AV_FIX_READ_LATENCY" value="0" />
+  <parameter name="AV_READ_WAIT_TIME" value="0" />
+  <parameter name="AV_WRITE_WAIT_TIME" value="0" />
+  <parameter name="REGISTER_WAITREQUEST" value="0" />
+  <parameter name="AV_REGISTERINCOMINGSIGNALS" value="0" />
+  <parameter name="ADDRESS_UNITS" value="WORDS" />
+  <parameter name="VHDL_ID" value="5" />
+ </module>
+ <module
+   kind="altera_avalon_mm_master_bfm"
+   version="13.1"
+   enabled="1"
+   name="fpga_mem_inst_mw0_bfm">
+  <parameter name="AV_ADDRESS_W" value="26" />
+  <parameter name="AV_SYMBOL_W" value="8" />
+  <parameter name="AV_NUMSYMBOLS" value="16" />
+  <parameter name="AV_BURSTCOUNT_W" value="6" />
+  <parameter name="AV_READRESPONSE_W" value="1" />
+  <parameter name="AV_WRITERESPONSE_W" value="1" />
+  <parameter name="USE_READ" value="1" />
+  <parameter name="USE_WRITE" value="1" />
+  <parameter name="USE_ADDRESS" value="1" />
+  <parameter name="USE_BYTE_ENABLE" value="1" />
+  <parameter name="USE_BURSTCOUNT" value="1" />
+  <parameter name="USE_READ_DATA" value="1" />
+  <parameter name="USE_READ_DATA_VALID" value="1" />
+  <parameter name="USE_WRITE_DATA" value="1" />
+  <parameter name="USE_BEGIN_TRANSFER" value="0" />
+  <parameter name="USE_BEGIN_BURST_TRANSFER" value="0" />
+  <parameter name="USE_ARBITERLOCK" value="0" />
+  <parameter name="USE_LOCK" value="0" />
+  <parameter name="USE_DEBUGACCESS" value="1" />
+  <parameter name="USE_WAIT_REQUEST" value="1" />
+  <parameter name="USE_TRANSACTIONID" value="0" />
+  <parameter name="USE_WRITERESPONSE" value="0" />
+  <parameter name="USE_READRESPONSE" value="0" />
+  <parameter name="USE_CLKEN" value="0" />
+  <parameter name="ASSERT_HIGH_RESET" value="1" />
+  <parameter name="ASSERT_HIGH_WAITREQUEST" value="1" />
+  <parameter name="ASSERT_HIGH_READ" value="1" />
+  <parameter name="ASSERT_HIGH_WRITE" value="1" />
+  <parameter name="ASSERT_HIGH_BYTEENABLE" value="1" />
+  <parameter name="ASSERT_HIGH_READDATAVALID" value="1" />
+  <parameter name="ASSERT_HIGH_ARBITERLOCK" value="1" />
+  <parameter name="ASSERT_HIGH_LOCK" value="1" />
+  <parameter name="AV_CONSTANT_BURST_BEHAVIOR" value="1" />
+  <parameter name="AV_BURST_LINEWRAP" value="0" />
+  <parameter name="AV_BURST_BNDR_ONLY" value="0" />
+  <parameter name="AV_MAX_PENDING_READS" value="4" />
+  <parameter name="AV_MAX_PENDING_WRITES" value="0" />
+  <parameter name="AV_FIX_READ_LATENCY" value="0" />
+  <parameter name="AV_READ_WAIT_TIME" value="0" />
+  <parameter name="AV_WRITE_WAIT_TIME" value="0" />
+  <parameter name="REGISTER_WAITREQUEST" value="0" />
+  <parameter name="AV_REGISTERINCOMINGSIGNALS" value="0" />
+  <parameter name="ADDRESS_UNITS" value="WORDS" />
+  <parameter name="VHDL_ID" value="6" />
+ </module>
+ <module
+   kind="altera_avalon_mm_master_bfm"
+   version="13.1"
+   enabled="1"
+   name="fpga_mem_inst_mw1_bfm">
+  <parameter name="AV_ADDRESS_W" value="26" />
+  <parameter name="AV_SYMBOL_W" value="8" />
+  <parameter name="AV_NUMSYMBOLS" value="16" />
+  <parameter name="AV_BURSTCOUNT_W" value="6" />
+  <parameter name="AV_READRESPONSE_W" value="1" />
+  <parameter name="AV_WRITERESPONSE_W" value="1" />
+  <parameter name="USE_READ" value="1" />
+  <parameter name="USE_WRITE" value="1" />
+  <parameter name="USE_ADDRESS" value="1" />
+  <parameter name="USE_BYTE_ENABLE" value="1" />
+  <parameter name="USE_BURSTCOUNT" value="1" />
+  <parameter name="USE_READ_DATA" value="1" />
+  <parameter name="USE_READ_DATA_VALID" value="1" />
+  <parameter name="USE_WRITE_DATA" value="1" />
+  <parameter name="USE_BEGIN_TRANSFER" value="0" />
+  <parameter name="USE_BEGIN_BURST_TRANSFER" value="0" />
+  <parameter name="USE_ARBITERLOCK" value="0" />
+  <parameter name="USE_LOCK" value="0" />
+  <parameter name="USE_DEBUGACCESS" value="1" />
+  <parameter name="USE_WAIT_REQUEST" value="1" />
+  <parameter name="USE_TRANSACTIONID" value="0" />
+  <parameter name="USE_WRITERESPONSE" value="0" />
+  <parameter name="USE_READRESPONSE" value="0" />
+  <parameter name="USE_CLKEN" value="0" />
+  <parameter name="ASSERT_HIGH_RESET" value="1" />
+  <parameter name="ASSERT_HIGH_WAITREQUEST" value="1" />
+  <parameter name="ASSERT_HIGH_READ" value="1" />
+  <parameter name="ASSERT_HIGH_WRITE" value="1" />
+  <parameter name="ASSERT_HIGH_BYTEENABLE" value="1" />
+  <parameter name="ASSERT_HIGH_READDATAVALID" value="1" />
+  <parameter name="ASSERT_HIGH_ARBITERLOCK" value="1" />
+  <parameter name="ASSERT_HIGH_LOCK" value="1" />
+  <parameter name="AV_CONSTANT_BURST_BEHAVIOR" value="1" />
+  <parameter name="AV_BURST_LINEWRAP" value="0" />
+  <parameter name="AV_BURST_BNDR_ONLY" value="0" />
+  <parameter name="AV_MAX_PENDING_READS" value="4" />
+  <parameter name="AV_MAX_PENDING_WRITES" value="0" />
+  <parameter name="AV_FIX_READ_LATENCY" value="0" />
+  <parameter name="AV_READ_WAIT_TIME" value="0" />
+  <parameter name="AV_WRITE_WAIT_TIME" value="0" />
+  <parameter name="REGISTER_WAITREQUEST" value="0" />
+  <parameter name="AV_REGISTERINCOMINGSIGNALS" value="0" />
+  <parameter name="ADDRESS_UNITS" value="WORDS" />
+  <parameter name="VHDL_ID" value="7" />
+ </module>
+ <module
+   kind="altera_avalon_mm_master_bfm"
+   version="13.1"
+   enabled="1"
+   name="fpga_mem_inst_mw2_bfm">
+  <parameter name="AV_ADDRESS_W" value="26" />
+  <parameter name="AV_SYMBOL_W" value="8" />
+  <parameter name="AV_NUMSYMBOLS" value="16" />
+  <parameter name="AV_BURSTCOUNT_W" value="6" />
+  <parameter name="AV_READRESPONSE_W" value="1" />
+  <parameter name="AV_WRITERESPONSE_W" value="1" />
+  <parameter name="USE_READ" value="1" />
+  <parameter name="USE_WRITE" value="1" />
+  <parameter name="USE_ADDRESS" value="1" />
+  <parameter name="USE_BYTE_ENABLE" value="1" />
+  <parameter name="USE_BURSTCOUNT" value="1" />
+  <parameter name="USE_READ_DATA" value="1" />
+  <parameter name="USE_READ_DATA_VALID" value="1" />
+  <parameter name="USE_WRITE_DATA" value="1" />
+  <parameter name="USE_BEGIN_TRANSFER" value="0" />
+  <parameter name="USE_BEGIN_BURST_TRANSFER" value="0" />
+  <parameter name="USE_ARBITERLOCK" value="0" />
+  <parameter name="USE_LOCK" value="0" />
+  <parameter name="USE_DEBUGACCESS" value="1" />
+  <parameter name="USE_WAIT_REQUEST" value="1" />
+  <parameter name="USE_TRANSACTIONID" value="0" />
+  <parameter name="USE_WRITERESPONSE" value="0" />
+  <parameter name="USE_READRESPONSE" value="0" />
+  <parameter name="USE_CLKEN" value="0" />
+  <parameter name="ASSERT_HIGH_RESET" value="1" />
+  <parameter name="ASSERT_HIGH_WAITREQUEST" value="1" />
+  <parameter name="ASSERT_HIGH_READ" value="1" />
+  <parameter name="ASSERT_HIGH_WRITE" value="1" />
+  <parameter name="ASSERT_HIGH_BYTEENABLE" value="1" />
+  <parameter name="ASSERT_HIGH_READDATAVALID" value="1" />
+  <parameter name="ASSERT_HIGH_ARBITERLOCK" value="1" />
+  <parameter name="ASSERT_HIGH_LOCK" value="1" />
+  <parameter name="AV_CONSTANT_BURST_BEHAVIOR" value="1" />
+  <parameter name="AV_BURST_LINEWRAP" value="0" />
+  <parameter name="AV_BURST_BNDR_ONLY" value="0" />
+  <parameter name="AV_MAX_PENDING_READS" value="4" />
+  <parameter name="AV_MAX_PENDING_WRITES" value="0" />
+  <parameter name="AV_FIX_READ_LATENCY" value="0" />
+  <parameter name="AV_READ_WAIT_TIME" value="0" />
+  <parameter name="AV_WRITE_WAIT_TIME" value="0" />
+  <parameter name="REGISTER_WAITREQUEST" value="0" />
+  <parameter name="AV_REGISTERINCOMINGSIGNALS" value="0" />
+  <parameter name="ADDRESS_UNITS" value="WORDS" />
+  <parameter name="VHDL_ID" value="8" />
+ </module>
+ <module
+   kind="altera_avalon_mm_master_bfm"
+   version="13.1"
+   enabled="1"
+   name="fpga_mem_inst_mw3_bfm">
+  <parameter name="AV_ADDRESS_W" value="26" />
+  <parameter name="AV_SYMBOL_W" value="8" />
+  <parameter name="AV_NUMSYMBOLS" value="16" />
+  <parameter name="AV_BURSTCOUNT_W" value="6" />
+  <parameter name="AV_READRESPONSE_W" value="1" />
+  <parameter name="AV_WRITERESPONSE_W" value="1" />
+  <parameter name="USE_READ" value="1" />
+  <parameter name="USE_WRITE" value="1" />
+  <parameter name="USE_ADDRESS" value="1" />
+  <parameter name="USE_BYTE_ENABLE" value="1" />
+  <parameter name="USE_BURSTCOUNT" value="1" />
+  <parameter name="USE_READ_DATA" value="1" />
+  <parameter name="USE_READ_DATA_VALID" value="1" />
+  <parameter name="USE_WRITE_DATA" value="1" />
+  <parameter name="USE_BEGIN_TRANSFER" value="0" />
+  <parameter name="USE_BEGIN_BURST_TRANSFER" value="0" />
+  <parameter name="USE_ARBITERLOCK" value="0" />
+  <parameter name="USE_LOCK" value="0" />
+  <parameter name="USE_DEBUGACCESS" value="1" />
+  <parameter name="USE_WAIT_REQUEST" value="1" />
+  <parameter name="USE_TRANSACTIONID" value="0" />
+  <parameter name="USE_WRITERESPONSE" value="0" />
+  <parameter name="USE_READRESPONSE" value="0" />
+  <parameter name="USE_CLKEN" value="0" />
+  <parameter name="ASSERT_HIGH_RESET" value="1" />
+  <parameter name="ASSERT_HIGH_WAITREQUEST" value="1" />
+  <parameter name="ASSERT_HIGH_READ" value="1" />
+  <parameter name="ASSERT_HIGH_WRITE" value="1" />
+  <parameter name="ASSERT_HIGH_BYTEENABLE" value="1" />
+  <parameter name="ASSERT_HIGH_READDATAVALID" value="1" />
+  <parameter name="ASSERT_HIGH_ARBITERLOCK" value="1" />
+  <parameter name="ASSERT_HIGH_LOCK" value="1" />
+  <parameter name="AV_CONSTANT_BURST_BEHAVIOR" value="1" />
+  <parameter name="AV_BURST_LINEWRAP" value="0" />
+  <parameter name="AV_BURST_BNDR_ONLY" value="0" />
+  <parameter name="AV_MAX_PENDING_READS" value="4" />
+  <parameter name="AV_MAX_PENDING_WRITES" value="0" />
+  <parameter name="AV_FIX_READ_LATENCY" value="0" />
+  <parameter name="AV_READ_WAIT_TIME" value="0" />
+  <parameter name="AV_WRITE_WAIT_TIME" value="0" />
+  <parameter name="REGISTER_WAITREQUEST" value="0" />
+  <parameter name="AV_REGISTERINCOMINGSIGNALS" value="0" />
+  <parameter name="ADDRESS_UNITS" value="WORDS" />
+  <parameter name="VHDL_ID" value="9" />
+ </module>
+ <module
+   kind="altera_avalon_mm_master_bfm"
+   version="13.1"
+   enabled="1"
+   name="fpga_mem_inst_hps_bfm">
+  <parameter name="AV_ADDRESS_W" value="26" />
+  <parameter name="AV_SYMBOL_W" value="8" />
+  <parameter name="AV_NUMSYMBOLS" value="16" />
+  <parameter name="AV_BURSTCOUNT_W" value="6" />
+  <parameter name="AV_READRESPONSE_W" value="1" />
+  <parameter name="AV_WRITERESPONSE_W" value="1" />
+  <parameter name="USE_READ" value="1" />
+  <parameter name="USE_WRITE" value="1" />
+  <parameter name="USE_ADDRESS" value="1" />
+  <parameter name="USE_BYTE_ENABLE" value="1" />
+  <parameter name="USE_BURSTCOUNT" value="1" />
+  <parameter name="USE_READ_DATA" value="1" />
+  <parameter name="USE_READ_DATA_VALID" value="1" />
+  <parameter name="USE_WRITE_DATA" value="1" />
+  <parameter name="USE_BEGIN_TRANSFER" value="0" />
+  <parameter name="USE_BEGIN_BURST_TRANSFER" value="0" />
+  <parameter name="USE_ARBITERLOCK" value="0" />
+  <parameter name="USE_LOCK" value="0" />
+  <parameter name="USE_DEBUGACCESS" value="1" />
+  <parameter name="USE_WAIT_REQUEST" value="1" />
+  <parameter name="USE_TRANSACTIONID" value="0" />
+  <parameter name="USE_WRITERESPONSE" value="0" />
+  <parameter name="USE_READRESPONSE" value="0" />
+  <parameter name="USE_CLKEN" value="0" />
+  <parameter name="ASSERT_HIGH_RESET" value="1" />
+  <parameter name="ASSERT_HIGH_WAITREQUEST" value="1" />
+  <parameter name="ASSERT_HIGH_READ" value="1" />
+  <parameter name="ASSERT_HIGH_WRITE" value="1" />
+  <parameter name="ASSERT_HIGH_BYTEENABLE" value="1" />
+  <parameter name="ASSERT_HIGH_READDATAVALID" value="1" />
+  <parameter name="ASSERT_HIGH_ARBITERLOCK" value="1" />
+  <parameter name="ASSERT_HIGH_LOCK" value="1" />
+  <parameter name="AV_CONSTANT_BURST_BEHAVIOR" value="1" />
+  <parameter name="AV_BURST_LINEWRAP" value="0" />
+  <parameter name="AV_BURST_BNDR_ONLY" value="0" />
+  <parameter name="AV_MAX_PENDING_READS" value="4" />
+  <parameter name="AV_MAX_PENDING_WRITES" value="0" />
+  <parameter name="AV_FIX_READ_LATENCY" value="0" />
+  <parameter name="AV_READ_WAIT_TIME" value="0" />
+  <parameter name="AV_WRITE_WAIT_TIME" value="0" />
+  <parameter name="REGISTER_WAITREQUEST" value="0" />
+  <parameter name="AV_REGISTERINCOMINGSIGNALS" value="0" />
+  <parameter name="ADDRESS_UNITS" value="WORDS" />
+  <parameter name="VHDL_ID" value="10" />
+ </module>
+ <module
+   kind="altera_avalon_mm_master_bfm"
+   version="13.1"
+   enabled="1"
+   name="fpga_mem_inst_mwa_bfm">
+  <parameter name="AV_ADDRESS_W" value="26" />
+  <parameter name="AV_SYMBOL_W" value="8" />
+  <parameter name="AV_NUMSYMBOLS" value="16" />
+  <parameter name="AV_BURSTCOUNT_W" value="6" />
+  <parameter name="AV_READRESPONSE_W" value="1" />
+  <parameter name="AV_WRITERESPONSE_W" value="1" />
+  <parameter name="USE_READ" value="1" />
+  <parameter name="USE_WRITE" value="1" />
+  <parameter name="USE_ADDRESS" value="1" />
+  <parameter name="USE_BYTE_ENABLE" value="1" />
+  <parameter name="USE_BURSTCOUNT" value="1" />
+  <parameter name="USE_READ_DATA" value="1" />
+  <parameter name="USE_READ_DATA_VALID" value="1" />
+  <parameter name="USE_WRITE_DATA" value="1" />
+  <parameter name="USE_BEGIN_TRANSFER" value="0" />
+  <parameter name="USE_BEGIN_BURST_TRANSFER" value="0" />
+  <parameter name="USE_ARBITERLOCK" value="0" />
+  <parameter name="USE_LOCK" value="0" />
+  <parameter name="USE_DEBUGACCESS" value="1" />
+  <parameter name="USE_WAIT_REQUEST" value="1" />
+  <parameter name="USE_TRANSACTIONID" value="0" />
+  <parameter name="USE_WRITERESPONSE" value="0" />
+  <parameter name="USE_READRESPONSE" value="0" />
+  <parameter name="USE_CLKEN" value="0" />
+  <parameter name="ASSERT_HIGH_RESET" value="1" />
+  <parameter name="ASSERT_HIGH_WAITREQUEST" value="1" />
+  <parameter name="ASSERT_HIGH_READ" value="1" />
+  <parameter name="ASSERT_HIGH_WRITE" value="1" />
+  <parameter name="ASSERT_HIGH_BYTEENABLE" value="1" />
+  <parameter name="ASSERT_HIGH_READDATAVALID" value="1" />
+  <parameter name="ASSERT_HIGH_ARBITERLOCK" value="1" />
+  <parameter name="ASSERT_HIGH_LOCK" value="1" />
+  <parameter name="AV_CONSTANT_BURST_BEHAVIOR" value="1" />
+  <parameter name="AV_BURST_LINEWRAP" value="0" />
+  <parameter name="AV_BURST_BNDR_ONLY" value="0" />
+  <parameter name="AV_MAX_PENDING_READS" value="4" />
+  <parameter name="AV_MAX_PENDING_WRITES" value="0" />
+  <parameter name="AV_FIX_READ_LATENCY" value="0" />
+  <parameter name="AV_READ_WAIT_TIME" value="0" />
+  <parameter name="AV_WRITE_WAIT_TIME" value="0" />
+  <parameter name="REGISTER_WAITREQUEST" value="0" />
+  <parameter name="AV_REGISTERINCOMINGSIGNALS" value="0" />
+  <parameter name="ADDRESS_UNITS" value="WORDS" />
+  <parameter name="VHDL_ID" value="11" />
+ </module>
+ <module
+   kind="altera_mem_if_ddr3_mem_model"
+   version="13.1"
+   enabled="1"
+   name="mem_if_ddr3_emif_0_mem_model">
+  <parameter name="MEM_VENDOR" value="JEDEC" />
+  <parameter name="MEM_FORMAT" value="DISCRETE" />
+  <parameter name="RDIMM_CONFIG" value="0000000000000000" />
+  <parameter name="LRDIMM_EXTENDED_CONFIG">0x000000000000000000</parameter>
+  <parameter name="DISCRETE_FLY_BY" value="true" />
+  <parameter name="DEVICE_DEPTH" value="1" />
+  <parameter name="MEM_MIRROR_ADDRESSING" value="0" />
+  <parameter name="MEM_CLK_FREQ_MAX" value="400.0" />
+  <parameter name="MEM_ROW_ADDR_WIDTH" value="15" />
+  <parameter name="MEM_COL_ADDR_WIDTH" value="10" />
+  <parameter name="MEM_DQ_WIDTH" value="32" />
+  <parameter name="MEM_DQ_PER_DQS" value="8" />
+  <parameter name="MEM_BANKADDR_WIDTH" value="3" />
+  <parameter name="MEM_IF_DM_PINS_EN" value="true" />
+  <parameter name="MEM_IF_DQSN_EN" value="true" />
+  <parameter name="MEM_NUMBER_OF_DIMMS" value="1" />
+  <parameter name="MEM_NUMBER_OF_RANKS_PER_DIMM" value="1" />
+  <parameter name="MEM_NUMBER_OF_RANKS_PER_DEVICE" value="1" />
+  <parameter name="MEM_RANK_MULTIPLICATION_FACTOR" value="1" />
+  <parameter name="MEM_CK_WIDTH" value="1" />
+  <parameter name="MEM_CS_WIDTH" value="1" />
+  <parameter name="MEM_CLK_EN_WIDTH" value="1" />
+  <parameter name="ALTMEMPHY_COMPATIBLE_MODE" value="false" />
+  <parameter name="NEXTGEN" value="true" />
+  <parameter name="MEM_IF_BOARD_BASE_DELAY" value="10" />
+  <parameter name="MEM_IF_SIM_VALID_WINDOW" value="0" />
+  <parameter name="MEM_GUARANTEED_WRITE_INIT" value="false" />
+  <parameter name="MEM_VERBOSE" value="true" />
+  <parameter name="PINGPONGPHY_EN" value="false" />
+  <parameter name="REFRESH_BURST_VALIDATION" value="false" />
+  <parameter name="MEM_BL" value="OTF" />
+  <parameter name="MEM_BT" value="Sequential" />
+  <parameter name="MEM_ASR" value="Manual" />
+  <parameter name="MEM_SRT" value="Normal" />
+  <parameter name="MEM_PD" value="DLL off" />
+  <parameter name="MEM_DRV_STR" value="RZQ/7" />
+  <parameter name="MEM_DLL_EN" value="true" />
+  <parameter name="MEM_RTT_NOM" value="RZQ/6" />
+  <parameter name="MEM_RTT_WR" value="RZQ/4" />
+  <parameter name="MEM_WTCL" value="5" />
+  <parameter name="MEM_ATCL" value="Disabled" />
+  <parameter name="MEM_TCL" value="6" />
+  <parameter name="MEM_AUTO_LEVELING_MODE" value="true" />
+  <parameter name="MEM_USER_LEVELING_MODE" value="Leveling" />
+  <parameter name="MEM_INIT_EN" value="false" />
+  <parameter name="MEM_INIT_FILE" value="" />
+  <parameter name="DAT_DATA_WIDTH" value="32" />
+  <parameter name="TIMING_TIS" value="200" />
+  <parameter name="TIMING_TIH" value="275" />
+  <parameter name="TIMING_TDS" value="75" />
+  <parameter name="TIMING_TDH" value="150" />
+  <parameter name="TIMING_TDQSQ" value="200" />
+  <parameter name="TIMING_TQH" value="0.38" />
+  <parameter name="TIMING_TDQSCK" value="400" />
+  <parameter name="TIMING_TDQSCKDS" value="450" />
+  <parameter name="TIMING_TDQSCKDM" value="900" />
+  <parameter name="TIMING_TDQSCKDL" value="1200" />
+  <parameter name="TIMING_TDQSS" value="0.25" />
+  <parameter name="TIMING_TQSH" value="0.38" />
+  <parameter name="TIMING_TDSH" value="0.2" />
+  <parameter name="TIMING_TDSS" value="0.2" />
+  <parameter name="MEM_TINIT_US" value="500" />
+  <parameter name="MEM_TMRD_CK" value="4" />
+  <parameter name="MEM_TRAS_NS" value="37.5" />
+  <parameter name="MEM_TRCD_NS" value="15.0" />
+  <parameter name="MEM_TRP_NS" value="15.0" />
+  <parameter name="MEM_TREFI_US" value="7.8" />
+  <parameter name="MEM_TRFC_NS" value="300.0" />
+  <parameter name="CFG_TCCD_NS" value="2.5" />
+  <parameter name="MEM_TWR_NS" value="15.0" />
+  <parameter name="MEM_TWTR" value="4" />
+  <parameter name="MEM_TFAW_NS" value="50.0" />
+  <parameter name="MEM_TRRD_NS" value="13.2" />
+  <parameter name="MEM_TRTP_NS" value="13.2" />
+  <parameter name="RATE" value="Full" />
+  <parameter name="MEM_CLK_FREQ" value="400.0" />
+  <parameter name="USE_MEM_CLK_FREQ" value="false" />
+  <parameter name="FORCE_DQS_TRACKING" value="AUTO" />
+  <parameter name="FORCE_SHADOW_REGS" value="AUTO" />
+  <parameter name="MRS_MIRROR_PING_PONG_ATSO" value="false" />
+  <parameter name="SYS_INFO_DEVICE_FAMILY" value="Cyclone V" />
+  <parameter name="PARSE_FRIENDLY_DEVICE_FAMILY_PARAM_VALID" value="false" />
+  <parameter name="PARSE_FRIENDLY_DEVICE_FAMILY_PARAM" value="" />
+  <parameter name="DEVICE_FAMILY_PARAM" value="" />
+  <parameter name="SPEED_GRADE" value="6" />
+  <parameter name="IS_ES_DEVICE" value="false" />
+  <parameter name="DISABLE_CHILD_MESSAGING" value="false" />
+  <parameter name="HARD_EMIF" value="true" />
+  <parameter name="HHP_HPS" value="false" />
+  <parameter name="HHP_HPS_VERIFICATION" value="false" />
+  <parameter name="HHP_HPS_SIMULATION" value="false" />
+  <parameter name="HPS_PROTOCOL" value="DEFAULT" />
+  <parameter name="CUT_NEW_FAMILY_TIMING" value="true" />
+ </module>
+ <connection
+   kind="clock"
+   version="13.1"
+   start="fpga_mem_inst_clk_bfm.clk"
+   end="fpga_mem_inst.clk" />
+ <connection
+   kind="clock"
+   version="13.1"
+   start="fpga_mem_inst_hps_clk_bfm.clk"
+   end="fpga_mem_inst.hps_clk" />
+ <connection
+   kind="clock"
+   version="13.1"
+   start="fpga_mem_inst_clk_bfm.clk"
+   end="fpga_mem_inst_reset_bfm.clk" />
+ <connection
+   kind="reset"
+   version="13.1"
+   start="fpga_mem_inst_reset_bfm.reset"
+   end="fpga_mem_inst.reset" />
+ <connection
+   kind="conduit"
+   version="13.1"
+   start="fpga_mem_inst_oct_bfm.conduit"
+   end="fpga_mem_inst.oct">
+  <parameter name="endPort" value="" />
+  <parameter name="endPortLSB" value="0" />
+  <parameter name="startPort" value="" />
+  <parameter name="startPortLSB" value="0" />
+  <parameter name="width" value="0" />
+ </connection>
+ <connection
+   kind="conduit"
+   version="13.1"
+   start="fpga_mem_inst_mem_if_ddr3_emif_0_status_bfm.conduit"
+   end="fpga_mem_inst.mem_if_ddr3_emif_0_status">
+  <parameter name="endPort" value="" />
+  <parameter name="endPortLSB" value="0" />
+  <parameter name="startPort" value="" />
+  <parameter name="startPortLSB" value="0" />
+  <parameter name="width" value="0" />
+ </connection>
+ <connection
+   kind="conduit"
+   version="13.1"
+   start="fpga_mem_inst_mem_if_ddr3_emif_0_pll_sharing_bfm.conduit"
+   end="fpga_mem_inst.mem_if_ddr3_emif_0_pll_sharing">
+  <parameter name="endPort" value="" />
+  <parameter name="endPortLSB" value="0" />
+  <parameter name="startPort" value="" />
+  <parameter name="startPortLSB" value="0" />
+  <parameter name="width" value="0" />
+ </connection>
+ <connection
+   kind="clock"
+   version="13.1"
+   start="fpga_mem_inst.afi_clk"
+   end="fpga_mem_inst_mrx_bfm.clk" />
+ <connection
+   kind="reset"
+   version="13.1"
+   start="fpga_mem_inst_reset_bfm.reset"
+   end="fpga_mem_inst_mrx_bfm.clk_reset" />
+ <connection
+   kind="avalon"
+   version="13.1"
+   start="fpga_mem_inst_mrx_bfm.m0"
+   end="fpga_mem_inst.mrx">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="clock"
+   version="13.1"
+   start="fpga_mem_inst.afi_clk"
+   end="fpga_mem_inst_mr0_bfm.clk" />
+ <connection
+   kind="reset"
+   version="13.1"
+   start="fpga_mem_inst_reset_bfm.reset"
+   end="fpga_mem_inst_mr0_bfm.clk_reset" />
+ <connection
+   kind="avalon"
+   version="13.1"
+   start="fpga_mem_inst_mr0_bfm.m0"
+   end="fpga_mem_inst.mr0">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="clock"
+   version="13.1"
+   start="fpga_mem_inst.afi_clk"
+   end="fpga_mem_inst_mr1_bfm.clk" />
+ <connection
+   kind="reset"
+   version="13.1"
+   start="fpga_mem_inst_reset_bfm.reset"
+   end="fpga_mem_inst_mr1_bfm.clk_reset" />
+ <connection
+   kind="avalon"
+   version="13.1"
+   start="fpga_mem_inst_mr1_bfm.m0"
+   end="fpga_mem_inst.mr1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="clock"
+   version="13.1"
+   start="fpga_mem_inst.afi_clk"
+   end="fpga_mem_inst_mr2_bfm.clk" />
+ <connection
+   kind="reset"
+   version="13.1"
+   start="fpga_mem_inst_reset_bfm.reset"
+   end="fpga_mem_inst_mr2_bfm.clk_reset" />
+ <connection
+   kind="avalon"
+   version="13.1"
+   start="fpga_mem_inst_mr2_bfm.m0"
+   end="fpga_mem_inst.mr2">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="clock"
+   version="13.1"
+   start="fpga_mem_inst.afi_clk"
+   end="fpga_mem_inst_mr3_bfm.clk" />
+ <connection
+   kind="reset"
+   version="13.1"
+   start="fpga_mem_inst_reset_bfm.reset"
+   end="fpga_mem_inst_mr3_bfm.clk_reset" />
+ <connection
+   kind="avalon"
+   version="13.1"
+   start="fpga_mem_inst_mr3_bfm.m0"
+   end="fpga_mem_inst.mr3">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="clock"
+   version="13.1"
+   start="fpga_mem_inst.afi_clk"
+   end="fpga_mem_inst_mwx_bfm.clk" />
+ <connection
+   kind="reset"
+   version="13.1"
+   start="fpga_mem_inst_reset_bfm.reset"
+   end="fpga_mem_inst_mwx_bfm.clk_reset" />
+ <connection
+   kind="avalon"
+   version="13.1"
+   start="fpga_mem_inst_mwx_bfm.m0"
+   end="fpga_mem_inst.mwx">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="clock"
+   version="13.1"
+   start="fpga_mem_inst.afi_clk"
+   end="fpga_mem_inst_mw0_bfm.clk" />
+ <connection
+   kind="reset"
+   version="13.1"
+   start="fpga_mem_inst_reset_bfm.reset"
+   end="fpga_mem_inst_mw0_bfm.clk_reset" />
+ <connection
+   kind="avalon"
+   version="13.1"
+   start="fpga_mem_inst_mw0_bfm.m0"
+   end="fpga_mem_inst.mw0">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="clock"
+   version="13.1"
+   start="fpga_mem_inst.afi_clk"
+   end="fpga_mem_inst_mw1_bfm.clk" />
+ <connection
+   kind="reset"
+   version="13.1"
+   start="fpga_mem_inst_reset_bfm.reset"
+   end="fpga_mem_inst_mw1_bfm.clk_reset" />
+ <connection
+   kind="avalon"
+   version="13.1"
+   start="fpga_mem_inst_mw1_bfm.m0"
+   end="fpga_mem_inst.mw1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="clock"
+   version="13.1"
+   start="fpga_mem_inst.afi_clk"
+   end="fpga_mem_inst_mw2_bfm.clk" />
+ <connection
+   kind="reset"
+   version="13.1"
+   start="fpga_mem_inst_reset_bfm.reset"
+   end="fpga_mem_inst_mw2_bfm.clk_reset" />
+ <connection
+   kind="avalon"
+   version="13.1"
+   start="fpga_mem_inst_mw2_bfm.m0"
+   end="fpga_mem_inst.mw2">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="clock"
+   version="13.1"
+   start="fpga_mem_inst.afi_clk"
+   end="fpga_mem_inst_mw3_bfm.clk" />
+ <connection
+   kind="reset"
+   version="13.1"
+   start="fpga_mem_inst_reset_bfm.reset"
+   end="fpga_mem_inst_mw3_bfm.clk_reset" />
+ <connection
+   kind="avalon"
+   version="13.1"
+   start="fpga_mem_inst_mw3_bfm.m0"
+   end="fpga_mem_inst.mw3">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="clock"
+   version="13.1"
+   start="fpga_mem_inst_hps_clk_bfm.clk"
+   end="fpga_mem_inst_hps_bfm.clk" />
+ <connection
+   kind="reset"
+   version="13.1"
+   start="fpga_mem_inst_reset_bfm.reset"
+   end="fpga_mem_inst_hps_bfm.clk_reset" />
+ <connection
+   kind="avalon"
+   version="13.1"
+   start="fpga_mem_inst_hps_bfm.m0"
+   end="fpga_mem_inst.hps">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="clock"
+   version="13.1"
+   start="fpga_mem_inst.afi_clk"
+   end="fpga_mem_inst_mwa_bfm.clk" />
+ <connection
+   kind="reset"
+   version="13.1"
+   start="fpga_mem_inst_reset_bfm.reset"
+   end="fpga_mem_inst_mwa_bfm.clk_reset" />
+ <connection
+   kind="avalon"
+   version="13.1"
+   start="fpga_mem_inst_mwa_bfm.m0"
+   end="fpga_mem_inst.mwa">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="conduit"
+   version="13.1"
+   start="mem_if_ddr3_emif_0_mem_model.memory"
+   end="fpga_mem_inst.memory_0">
+  <parameter name="endPort" value="" />
+  <parameter name="endPortLSB" value="0" />
+  <parameter name="startPort" value="" />
+  <parameter name="startPortLSB" value="0" />
+  <parameter name="width" value="0" />
+ </connection>
+ <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
+ <interconnectRequirement for="$system" name="qsys_mm.maxAdditionalLatency" value="1" />
+ <interconnectRequirement for="$system" name="qsys_mm.insertDefaultSlave" value="false" />
+</system>
